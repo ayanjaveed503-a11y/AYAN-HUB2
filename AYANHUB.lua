@@ -902,7 +902,7 @@ local function createSoonLoadstringButton(parent, text, yPos)
 end
 
 createSoonLoadstringButton(shield2FF, "🛡️ AntiBang Script 1", 110)
-createSoonLoadstringButton(shield2FF, "🛡️ AntiBang Script 2", 158)
+createLoadstringButton(shield2FF, "Aapke Button ka Naam", yPos, "Aapka_GitHub_Raw_Link_Yahan_Aayega")
 
 R.Heartbeat:Connect(function()
     pcall(function()
@@ -1781,12 +1781,12 @@ notesBody.TextXAlignment = Enum.TextXAlignment.Left
 notesBody.TextYAlignment = Enum.TextYAlignment.Top
 notesBody.Text = [[
 • TARGETING: Search player name/display, View online status,Thumbnail preview, Goto Target Teleport, Mouthbang, Back Bang, Front Sit, Front Headsit, Orbit Target, Aimbot, ESP, View/Unview.
-• SHIELD (1): Smart Anti-Sit, Anti-Void, Anti-Fling, Anti-Teleport Kill, Anti-Glitch, Anti-Sit V2.
+• SHIELD: Smart Anti-Sit, Anti-Void, Anti-Fling, Anti-Teleport Kill, Anti-Glitch, Anti-Sit V2.
 • ANTIBANG: Custom Speed AntiBang protection & script integration slots.
 • PLAYER: Mobile Fly (ON/OFF), WalkSpeed, JumpPower, Infinite Jump, Noclip, ESP, Walkfling (Muffins Fling Engine).
 • FLING ALL: Live Search Box + Interactive Player List Checkboxes + Start/Stop Fling Selected/All.
 • ALL SPAM & SCRIPT: Multiple spammer tools and custom loadstring script hubs.
-• LIFE TOGETHER: PIN-locked (9900) exclusive map scripts & utilities.
+• LIFE TOGETHER: PIN-locked exclusive map scripts & utilities.
 • PLAYER LIST & TIME: Live server player search + individual session/game time tracker.
 • ANTI-AFK: Ayanuu AFK engine with custom rain UI, timer, and Kicks Prevented counter.
 • ENHANCED FPS: Live FPS counter and booster loadstrings.
