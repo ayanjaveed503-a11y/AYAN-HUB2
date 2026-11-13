@@ -93,7 +93,7 @@ t.BackgroundColor3 = Color3.fromRGB(10, 30, 60)
 t.TextColor3 = Color3.new(1, 1, 1)
 t.Font = Enum.Font.SourceSansBold 
 t.TextSize = 18
-t.Text = "🏡 Life Together | AYANUU "
+t.Text = "🏡 Life Together | HUB MADE BY AYANUU "
 t.Active = true
 Instance.new("UICorner", t).CornerRadius = UDim.new(0, 8)
 
@@ -387,7 +387,7 @@ tt2.BackgroundTransparency = 0.35
 tt2.TextColor3 = Color3.new(1, 1, 1)
 tt2.Font = Enum.Font.SourceSansBold 
 tt2.TextSize = 15
-tt2.Text = "# ¥Red ¥ + My Roblox Account V0_L5 Script Developer"
+tt2.Text = " $ ZM $ # AYANUU # + My Roblox Sec Account AYANUU160 Script Developer"
 tt2.ZIndex = 4
 table.insert(softRgbElements, {Type = "TextColor", Obj = tt2})
 
