@@ -245,8 +245,8 @@ local function B(tx, y, secName)
 end
 
 -- Ordered Tabs (Playtime updated to Player List & Playtime)
-local tb = B("Targeting", 0, "Target")
-local shield1B = B("Shield 🛡️ (1)", 1, "Shield1")
+local tb = B("target", 0, "Target")
+local shield1B = B("Shield", 1, "Shield1")
 local shield2B = B("AntiBang", 2, "Shield2")
 local playerTabBtn = B("Player", 3, "Player")
 local flingAllB = B("Fling All", 4, "FlingAll")
@@ -1391,7 +1391,7 @@ passBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 passBox.Font = Enum.Font.SourceSansBold
 passBox.TextSize = 16
 passBox.Text = ""
-passBox.PlaceholderText = "Enter PIN Code (9900)..."
+passBox.PlaceholderText = "Enter PIN Code ..."
 passBox.PlaceholderColor3 = Color3.fromRGB(180, 180, 180)
 passBox.ClearTextOnFocus = false
 passBox.ZIndex = 11
@@ -1780,7 +1780,7 @@ notesBody.TextSize = 13
 notesBody.TextXAlignment = Enum.TextXAlignment.Left
 notesBody.TextYAlignment = Enum.TextYAlignment.Top
 notesBody.Text = [[
-• TARGETING: Search player name/display, View online status, Thumbnail preview, Goto Target Teleport, Mouthbang, Back Bang, Front Sit, Front Headsit, Orbit Target, Aimbot, ESP, View/Unview.
+• TARGETING: Search player name/display, View online status,Thumbnail preview, Goto Target Teleport, Mouthbang, Back Bang, Front Sit, Front Headsit, Orbit Target, Aimbot, ESP, View/Unview.
 • SHIELD (1): Smart Anti-Sit, Anti-Void, Anti-Fling, Anti-Teleport Kill, Anti-Glitch, Anti-Sit V2.
 • ANTIBANG: Custom Speed AntiBang protection & script integration slots.
 • PLAYER: Mobile Fly (ON/OFF), WalkSpeed, JumpPower, Infinite Jump, Noclip, ESP, Walkfling (Muffins Fling Engine).
