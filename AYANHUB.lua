@@ -902,7 +902,6 @@ local function createSoonLoadstringButton(parent, text, yPos)
 end
 
 createSoonLoadstringButton(shield2FF, "🛡️ AntiBang Script 1", 110)
-createLoadstringButton(shield2FF, "Aapke Button ka Naam", yPos, "Aapka_GitHub_Raw_Link_Yahan_Aayega")
 
 R.Heartbeat:Connect(function()
     pcall(function()
