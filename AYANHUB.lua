@@ -1,6 +1,6 @@
--- // Luxury Royal Edition Dedicated to Life Together 🏡 RP
--- // Developer: L5xlilr (+V0_L5)
--- // Universal All-Executor Support, Player List with Search & Session Time, Orbit, TP Fix, and Full Notes
+-- // AYANUU Edition Dedicated to Life Together 🏡 RP
+-- // Developer: AYANUU (+V0_L5)
+-- // Universal All-Executor Support,
 
 -- Verify Life Together Place ID
 local LIFE_TOGETHER_PLACE_ID = 11732688484
@@ -93,7 +93,7 @@ t.BackgroundColor3 = Color3.fromRGB(10, 30, 60)
 t.TextColor3 = Color3.new(1, 1, 1)
 t.Font = Enum.Font.SourceSansBold 
 t.TextSize = 18
-t.Text = "🏡 Life Together | ¥ L5xlilr +V0_L5 # ¥Red"
+t.Text = "🏡 Life Together | AYANUU "
 t.Active = true
 Instance.new("UICorner", t).CornerRadius = UDim.new(0, 8)
 
