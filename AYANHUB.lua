@@ -903,6 +903,16 @@ end)
 createLoadstringButton(shield2FF, "🛡️ AntiBang Script 1", 110, "Aapki_Pehli_Script_Ka_Link")
 createLoadstringButton(shield2FF, "🛡️ AntiBang Script 2", 158, "Aapki_Doosri_Script_Ka_Link")
 createLoadstringButton(shield2FF, "🛡️ AntiBang Script 3", 206, "Aapki_Teesri_Script_Ka_Link")
+createLoadstringButton(shield2FF, "🛡️ AntiBang Script 4", 254, "Aapki_Chauthi_Script_Ka_Link")
+createLoadstringButton(shield2FF, "🛡️ AntiBang Script 5", 302, "Aapki_Paanchv_Script_Ka_Link")
+createLoadstringButton(shield2FF, "🛡️ AntiBang Script 6", 350, "Aapki_Chhathi_Script_Ka_Link")
+createLoadstringButton(shield2FF, "🛡️ AntiBang Script 7", 398, "Aapki_Saatv_Script_Ka_Link")
+createLoadstringButton(shield2FF, "🛡️ AntiBang Script 8", 446, "Aapki_Aathv_Script_Ka_Link")
+createLoadstringButton(shield2FF, "🛡️ AntiBang Script 9", 494, "Aapki_Nauv_Script_Ka_Link")
+createLoadstringButton(shield2FF, "🛡️ AntiBang Script 10", 542, "Aapki_Dasv_Script_Ka_Link")
+createLoadstringButton(shield2FF, "🛡️ AntiBang Script 11", 590, "Aapki_Gyarahv_Script_Ka_Link")
+createLoadstringButton(shield2FF, "🛡️ AntiBang Script 12", 638, "Aapki_Barahv_Script_Ka_Link")
+createLoadstringButton(shield2FF, "🛡️ AntiBang Script 13", 686, "Aapki_Terahv_Script_Ka_Link")
 
 end
 
@@ -1324,8 +1334,18 @@ asHeader.Text = "📢 All Spam & 10 Loadstrings"
 asHeader.ZIndex = 4
 Instance.new("UICorner", asHeader).CornerRadius = UDim.new(0, 6)
 
-for i = 1, 10 do
-    createLoadstringButton(allSpamFF, "💬 Spam Script " .. i, 56 + ((i - 1) * 42), "https://raw.githubusercontent.com/example/spam" .. i .. ".lua")
+
+createLoadstringButton(allSpamFF, "💬 Spam Script 1", 56, "Aapki_Pehli_Script_Ka_Link")
+createLoadstringButton(allSpamFF, "💬 Spam Script 2", 104, "Aapki_Doosri_Script_Ka_Link")
+createLoadstringButton(allSpamFF, "💬 Spam Script 3", 152, "Aapki_Teesri_Script_Ka_Link")
+createLoadstringButton(allSpamFF, "💬 Spam Script 4", 200, "Aapki_Chauthi_Script_Ka_Link")
+createLoadstringButton(allSpamFF, "💬 Spam Script 5", 248, "Aapki_Paanchv_Script_Ka_Link")
+createLoadstringButton(allSpamFF, "💬 Spam Script 6", 296, "Aapki_Chhathi_Script_Ka_Link")
+createLoadstringButton(allSpamFF, "💬 Spam Script 7", 344, "Aapki_Saatv_Script_Ka_Link")
+createLoadstringButton(allSpamFF, "💬 Spam Script 8", 392, "Aapki_Aathv_Script_Ka_Link")
+createLoadstringButton(allSpamFF, "💬 Spam Script 9", 440, "Aapki_Nauv_Script_Ka_Link")
+createLoadstringButton(allSpamFF, "💬 Spam Script 10", 488, "Aapki_Dasv_Script_Ka_Link")
+
 end
 
 
@@ -1342,8 +1362,18 @@ msHeader.Text = "🔥 Script Section & 10 Loadstrings"
 msHeader.ZIndex = 4
 Instance.new("UICorner", msHeader).CornerRadius = UDim.new(0, 6)
 
-for i = 1, 10 do
-    createLoadstringButton(mastScriptFF, "💎 Script Hub " .. i, 56 + ((i - 1) * 42), "https://raw.githubusercontent.com/example/mast" .. i .. ".lua")
+for
+createLoadstringButton(scriptsFF, "📜 Script Hub Item 1", 56, "Aapki_Pehli_Script_Ka_Link")
+createLoadstringButton(scriptsFF, "📜 Script Hub Item 2", 104, "Aapki_Doosri_Script_Ka_Link")
+createLoadstringButton(scriptsFF, "📜 Script Hub Item 3", 152, "Aapki_Teesri_Script_Ka_Link")
+createLoadstringButton(scriptsFF, "📜 Script Hub Item 4", 200, "Aapki_Chauthi_Script_Ka_Link")
+createLoadstringButton(scriptsFF, "📜 Script Hub Item 5", 248, "Aapki_Paanchv_Script_Ka_Link")
+createLoadstringButton(scriptsFF, "📜 Script Hub Item 6", 296, "Aapki_Chhathi_Script_Ka_Link")
+createLoadstringButton(scriptsFF, "📜 Script Hub Item 7", 344, "Aapki_Saatv_Script_Ka_Link")
+createLoadstringButton(scriptsFF, "📜 Script Hub Item 8", 392, "Aapki_Aathv_Script_Ka_Link")
+createLoadstringButton(scriptsFF, "📜 Script Hub Item 9", 440, "Aapki_Nauv_Script_Ka_Link")
+createLoadstringButton(scriptsFF, "📜 Script Hub Item 10", 488, "Aapki_Dasv_Script_Ka_Link")
+
 end
 
 
@@ -1412,8 +1442,18 @@ ltHeader.Text = "🏡 Life Together & 10 Loadstrings"
 ltHeader.ZIndex = 5
 Instance.new("UICorner", ltHeader).CornerRadius = UDim.new(0, 6)
 
-for i = 1, 10 do
-    createLoadstringButton(ltContent, "✨ Life Together Script " .. i, 56 + ((i - 1) * 42), "https://raw.githubusercontent.com/example/script" .. i .. ".lua")
+for
+createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 1", 56, "Aapki_Pehli_Script_Ka_Link")
+createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 2", 104, "Aapki_Doosri_Script_Ka_Link")
+createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 3", 152, "Aapki_Teesri_Script_Ka_Link")
+createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 4", 200, "Aapki_Chauthi_Script_Ka_Link")
+createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 5", 248, "Aapki_Paanchv_Script_Ka_Link")
+createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 6", 296, "Aapki_Chhathi_Script_Ka_Link")
+createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 7", 344, "Aapki_Saatv_Script_Ka_Link")
+createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 8", 392, "Aapki_Aathv_Script_Ka_Link")
+createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 9", 440, "Aapki_Nauv_Script_Ka_Link")
+createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 10", 488, "Aapki_Dasv_Script_Ka_Link")
+
 end
 
 passBox.FocusLost:Connect(function(enterPressed)
