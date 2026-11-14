@@ -1337,7 +1337,7 @@ createLoadstringButton(allSpamFF, "MEHDI SPAMMER", 200, "https://raw.githubuserc
 createLoadstringButton(allSpamFF, "ARHAN SPAMMER", 248, "https://raw.githubusercontent.com/ayanjaveed503-a11y/EVERYONE-SCRIPT/refs/heads/main/ARHAN%20SPAM.txt")
 createLoadstringButton(allSpamFF, "SAMRAT SPAMMER", 296, "https://raw.githubusercontent.com/ayanjaveed503-a11y/EVERYONE-SCRIPT/refs/heads/main/SAMRAT%20SPAM.txt")
 createLoadstringButton(allSpamFF, "TRIO SPAMMER", 344, "https://raw.githubusercontent.com/ayanjaveed503-a11y/EVERYONE-SCRIPT/refs/heads/main/TRIO%20SPAM%20.txt")
-createLoadstringButton(allSpamFF, "💬 Spam Script 8", 392, "Aapki_Aathv_Script_Ka_Link")
+createLoadstringButton(allSpamFF, "MIKEY SPAMMER", 392, "https://raw.githubusercontent.com/MuddyyXScripts/MIKEY-SPAMMER-V1/refs/heads/main/ObfuscatedByMonKFuscate.luau%20(5).txt")
 createLoadstringButton(allSpamFF, "💬 Spam Script 9", 440, "Aapki_Nauv_Script_Ka_Link")
 createLoadstringButton(allSpamFF, "💬 Spam Script 10", 488, "Aapki_Dasv_Script_Ka_Link")
 
@@ -1355,16 +1355,16 @@ msHeader.Text = "🔥 Script Section & Loadstrings"
 msHeader.ZIndex = 4
 Instance.new("UICorner", msHeader).CornerRadius = UDim.new(0, 6)
 
-createLoadstringButton(mastScriptFF, "📜 Script Hub Item 1", 56, "Aapki_Pehli_Script_Ka_Link")
-createLoadstringButton(mastScriptFF, "📜 Script Hub Item 2", 104, "Aapki_Doosri_Script_Ka_Link")
-createLoadstringButton(mastScriptFF, "📜 Script Hub Item 3", 152, "Aapki_Teesri_Script_Ka_Link")
-createLoadstringButton(mastScriptFF, "📜 Script Hub Item 4", 200, "Aapki_Chauthi_Script_Ka_Link")
-createLoadstringButton(mastScriptFF, "📜 Script Hub Item 5", 248, "Aapki_Paanchv_Script_Ka_Link")
-createLoadstringButton(mastScriptFF, "📜 Script Hub Item 6", 296, "Aapki_Chhathi_Script_Ka_Link")
-createLoadstringButton(mastScriptFF, "📜 Script Hub Item 7", 344, "Aapki_Saatv_Script_Ka_Link")
-createLoadstringButton(mastScriptFF, "📜 Script Hub Item 8", 392, "Aapki_Aathv_Script_Ka_Link")
-createLoadstringButton(mastScriptFF, "📜 Script Hub Item 9", 440, "Aapki_Nauv_Script_Ka_Link")
-createLoadstringButton(mastScriptFF, "📜 Script Hub Item 10", 488, "Aapki_Dasv_Script_Ka_Link")
+createLoadstringButton(mastScriptFF, "GAZE EMOTE", 56, "https://raw.githubusercontent.com/Gazer-Ha/Gaze-stuff/refs/heads/main/Gaze%20emote")
+createLoadstringButton(mastScriptFF, "ZAYN CHAT-MOBILE", 104, "https://raw.githubusercontent.com/ZaynBoss01/ZAYN/refs/heads/main/Zayn-Roblox")
+createLoadstringButton(mastScriptFF, "GLOBAL CHAT-PC", 152, "https://gist.githubusercontent.com/josh19mark-sys/276fd3c0ad985fe2476f6ce333b4354f/raw/a29997b49f6279e3c0a2564737bb020e7a885cb6/gistfile1.txt")
+createLoadstringButton(mastScriptFF, "MUSIC PLAYER", 200, "https://api.aurorax.site/files/v5/loaders/fdc766682032eea1cd25a1b7a976d621")
+createLoadstringButton(mastScriptFF, "📜 Script hub soon 5", 248, "https://raw.githubusercontent.com/MuddyyXScrds/main/ObfuscatedByMonKFuscate.luau%20(5).txt")
+createLoadstringButton(mastScriptFF, "📜 Script Hub soon 6", 296, "Aapki_Chhathi_Script_Ka_Link")
+createLoadstringButton(mastScriptFF, "📜 Script Hub soon 7", 344, "Aapki_Saatv_Script_Ka_Link")
+createLoadstringButton(mastScriptFF, "📜 Script Hub soon 8", 392, "Aapki_Aathv_Script_Ka_Link")
+createLoadstringButton(mastScriptFF, "📜 Script Hub soon 9", 440, "Aapki_Nauv_Script_Ka_Link")
+createLoadstringButton(mastScriptFF, "📜 Script Hub soon 10", 488, "Aapki_Dasv_Script_Ka_Link")
 
 
 -- 8. Life Together Section - 10 Loadstring slots added
