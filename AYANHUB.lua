@@ -70,7 +70,7 @@ m.BackgroundTransparency = 0.4
 m.Active = true 
 Instance.new("UICorner", m).CornerRadius = UDim.new(0, 14)
 
--- Custom Background Image (Default Slot 1)[span_0](start_span)[span_0](end_span)
+-- Custom Background Image (Default Slot 1)
 local mainBgImage = Instance.new("ImageLabel", m)
 mainBgImage.Name = "HubBackground"
 mainBgImage.Size = UDim2.new(1, 0, 1, 0)
@@ -244,7 +244,7 @@ local function B(tx, y, secName)
     return b 
 end
 
--- Ordered Tabs (Playtime updated to Player List & Playtime)
+-- Ordered Tabs
 local tb = B("target", 0, "Target")
 local shield1B = B("Shield", 1, "Shield1")
 local shield2B = B("AntiBang", 2, "Shield2")
@@ -376,6 +376,25 @@ task.spawn(function()
     end
 end)
 
+-- Helper Loadstring Button Creator
+local function createLoadstringButton(parent, text, yPos, url)
+    local btn = Instance.new("TextButton", parent)
+    btn.Size = UDim2.new(1, -20, 0, 38)
+    btn.Position = UDim2.new(0, 10, 0, yPos)
+    btn.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    btn.BackgroundTransparency = 0.35
+    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    btn.Font = Enum.Font.SourceSansBold
+    btn.TextSize = 14
+    btn.Text = text
+    btn.ZIndex = 5
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 8)
+    btn.MouseButton1Click:Connect(function()
+        pcall(function() loadstring(game:HttpGet(url))() end)
+    end)
+    return btn
+end
+
 -- 1. Targeting Section
 local sf = CreateSection("Target", 780)
 sf.Visible = true
@@ -459,7 +478,6 @@ st.TextColor3 = Color3.fromRGB(255, 255, 255)
 st.TextXAlignment = Enum.TextXAlignment.Left
 st.ZIndex = 5
 
--- Fixed Goto Target Button
 local gotoTargetBtn = Instance.new("TextButton", sf)
 gotoTargetBtn.Size = UDim2.new(1, -20, 0, 35)
 gotoTargetBtn.Position = UDim2.new(0, 10, 0, 310)
@@ -613,7 +631,6 @@ task.spawn(function()
 end)
 task.spawn(refreshTargetPlayerList)
 
--- Actions & Toggles Loop
 R.Heartbeat:Connect(function()
     pcall(function()
         local activeTarget = lockedPlayer
@@ -716,7 +733,6 @@ R.RenderStepped:Connect(function()
     end
 end)
 
--- Target Toggles UI
 _, setUIMouth = CreateToggleSwitch(sf, "Mouthbang", 355, function(state)
     mouthbangActive = state
     if state then
@@ -835,8 +851,8 @@ CreateToggleSwitch(shield1FF, "Anti sit on off (antisitv2)", 288, function(v)
 end, false)
 
 
--- 3. AntiBang Section (Shield2)
-local shield2FF = CreateSection("Shield2", 280)
+-- 3. AntiBang Section (Shield2) - 10 Loadstring slots added
+local shield2FF = CreateSection("Shield2", 520)
 local s2Header = Instance.new("TextLabel", shield2FF)
 s2Header.Size = UDim2.new(1, -20, 0, 36)
 s2Header.Position = UDim2.new(0, 10, 0, 10)
@@ -844,7 +860,7 @@ s2Header.BackgroundColor3 = Color3.fromRGB(150, 20, 20)
 s2Header.TextColor3 = Color3.new(1, 1, 1)
 s2Header.Font = Enum.Font.SourceSansBold 
 s2Header.TextSize = 17
-s2Header.Text = "🛡️ AntiBang Protections & Custom Speed"
+s2Header.Text = "🛡️ AntiBang & 10 Loadstrings"
 s2Header.ZIndex = 4
 Instance.new("UICorner", s2Header).CornerRadius = UDim.new(0, 6)
 
@@ -883,25 +899,10 @@ task.spawn(function()
         task.wait(0.05)
     end
 end)
-local function createSoonLoadstringButton(parent, text, yPos)
-    local btn = Instance.new("TextButton", parent)
-    btn.Size = UDim2.new(1, -20, 0, 38)
-    btn.Position = UDim2.new(0, 10, 0, yPos)
-    btn.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-    btn.BackgroundTransparency = 0.35
-    btn.TextColor3 = Color3.fromRGB(200, 200, 200)
-    btn.Font = Enum.Font.SourceSansBold
-    btn.TextSize = 14
-    btn.Text = text .. " [SOON]"
-    btn.ZIndex = 5
-    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 8)
-    btn.MouseButton1Click:Connect(function()
-        print("Script coming soon!")
-    end)
-    return btn
-end
 
-createSoonLoadstringButton(shield2FF, "🛡️ AntiBang Script 1", 110)
+for i = 1, 10 do
+    createLoadstringButton(shield2FF, "🛡️ AntiBang Script " .. i, 110 + ((i - 1) * 42), "https://raw.githubusercontent.com/example/antibang" .. i .. ".lua")
+end
 
 R.Heartbeat:Connect(function()
     pcall(function()
@@ -1142,7 +1143,8 @@ R.PostSimulation:Connect(function()
     end
 end)
 
--- 5. Fling All Tab (With Search Box & Interactive Player List)[span_1](start_span)[span_1](end_span)
+
+-- 5. Fling All Tab[span_0](start_span)[span_0](end_span)
 local flingAllFF = CreateSection("FlingAll", 420)
 local faHeader = Instance.new("TextLabel", flingAllFF)
 faHeader.Size = UDim2.new(1, -20, 0, 36)
@@ -1307,8 +1309,8 @@ stopFlingAllBtn.MouseButton1Click:Connect(function()
 end)
 
 
--- 6. All Spam Section
-local allSpamFF = CreateSection("AllSpam", 230)
+-- 6. All Spam Section - 10 Loadstring slots added
+local allSpamFF = CreateSection("AllSpam", 500)
 local asHeader = Instance.new("TextLabel", allSpamFF)
 asHeader.Size = UDim2.new(1, -20, 0, 36)
 asHeader.Position = UDim2.new(0, 10, 0, 10)
@@ -1316,35 +1318,17 @@ asHeader.BackgroundColor3 = Color3.fromRGB(60, 0, 120)
 asHeader.TextColor3 = Color3.new(1, 1, 1)
 asHeader.Font = Enum.Font.SourceSansBold 
 asHeader.TextSize = 17
-asHeader.Text = "📢 All Spam Tools & Macros"
+asHeader.Text = "📢 All Spam & 10 Loadstrings"
 asHeader.ZIndex = 4
 Instance.new("UICorner", asHeader).CornerRadius = UDim.new(0, 6)
 
-local function createLoadstringButton(parent, text, yPos, url)
-    local btn = Instance.new("TextButton", parent)
-    btn.Size = UDim2.new(1, -20, 0, 42)
-    btn.Position = UDim2.new(0, 10, 0, yPos)
-    btn.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-    btn.BackgroundTransparency = 0.35
-    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    btn.Font = Enum.Font.SourceSansBold
-    btn.TextSize = 15
-    btn.Text = text
-    btn.ZIndex = 5
-    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 8)
-    btn.MouseButton1Click:Connect(function()
-        pcall(function() loadstring(game:HttpGet(url))() end)
-    end)
-    return btn
+for i = 1, 10 do
+    createLoadstringButton(allSpamFF, "💬 Spam Script " .. i, 56 + ((i - 1) * 42), "https://raw.githubusercontent.com/example/spam" .. i .. ".lua")
 end
 
-createLoadstringButton(allSpamFF, "💬 Run Spam Script 1 (Chat Spammer)", 56, "https://raw.githubusercontent.com/example/spam1.lua")
-createLoadstringButton(allSpamFF, "⚡ Run Spam Script 2 (Action Spammer)", 104, "https://raw.githubusercontent.com/example/spam2.lua")
-createLoadstringButton(allSpamFF, "🚀 Run Spam Script 3 (Macro Automation)", 152, "https://raw.githubusercontent.com/example/spam3.lua")
 
-
--- 7. Script Section
-local mastScriptFF = CreateSection("MastScript", 230)
+-- 7. Script Section - 10 Loadstring slots added
+local mastScriptFF = CreateSection("MastScript", 500)
 local msHeader = Instance.new("TextLabel", mastScriptFF)
 msHeader.Size = UDim2.new(1, -20, 0, 36)
 msHeader.Position = UDim2.new(0, 10, 0, 10)
@@ -1352,17 +1336,17 @@ msHeader.BackgroundColor3 = Color3.fromRGB(120, 0, 60)
 msHeader.TextColor3 = Color3.new(1, 1, 1)
 msHeader.Font = Enum.Font.SourceSansBold 
 msHeader.TextSize = 17
-msHeader.Text = "🔥 Script Section (Powerful Scripts)"
+msHeader.Text = "🔥 Script Section & 10 Loadstrings"
 msHeader.ZIndex = 4
 Instance.new("UICorner", msHeader).CornerRadius = UDim.new(0, 6)
 
-createLoadstringButton(mastScriptFF, "💎 Run Awesome Script 1", 56, "https://raw.githubusercontent.com/example/mast1.lua")
-createLoadstringButton(mastScriptFF, "⚡ Run Awesome Script 2", 104, "https://raw.githubusercontent.com/example/mast2.lua")
-createLoadstringButton(mastScriptFF, "👑 Run Awesome Script 3", 152, "https://raw.githubusercontent.com/example/mast3.lua")
+for i = 1, 10 do
+    createLoadstringButton(mastScriptFF, "💎 Script Hub " .. i, 56 + ((i - 1) * 42), "https://raw.githubusercontent.com/example/mast" .. i .. ".lua")
+end
 
 
--- 8. Life Together Section
-local lifeTogetherFF = CreateSection("LifeTogether", 250)
+-- 8. Life Together Section - 10 Loadstring slots added
+local lifeTogetherFF = CreateSection("LifeTogether", 520)
 
 local lockScreen = Instance.new("Frame", lifeTogetherFF)
 lockScreen.Size = UDim2.new(1, 0, 1, 0)
@@ -1410,7 +1394,7 @@ local ltContent = Instance.new("ScrollingFrame", lifeTogetherFF)
 ltContent.Size = UDim2.new(1, 0, 1, 0)
 ltContent.Position = UDim2.new(0, 0, 0, 0)
 ltContent.BackgroundTransparency = 1
-ltContent.CanvasSize = UDim2.new(0, 0, 0, 250)
+ltContent.CanvasSize = UDim2.new(0, 0, 0, 500)
 ltContent.ScrollBarThickness = 4
 ltContent.Visible = false
 ltContent.ZIndex = 4
@@ -1422,13 +1406,13 @@ ltHeader.BackgroundColor3 = Color3.fromRGB(0, 60, 120)
 ltHeader.TextColor3 = Color3.new(1, 1, 1)
 ltHeader.Font = Enum.Font.SourceSansBold 
 ltHeader.TextSize = 17
-ltHeader.Text = "🏡 Life Together Scripts & Tools"
+ltHeader.Text = "🏡 Life Together & 10 Loadstrings"
 ltHeader.ZIndex = 5
 Instance.new("UICorner", ltHeader).CornerRadius = UDim.new(0, 6)
 
-createLoadstringButton(ltContent, "✨ Run Script 1 (Life Together)", 56, "https://raw.githubusercontent.com/example/script1.lua")
-createLoadstringButton(ltContent, "🚀 Run Script 2 (Life Together)", 104, "https://raw.githubusercontent.com/example/script2.lua")
-createLoadstringButton(ltContent, "🔥 Run Script 3 (Life Together)", 152, "https://raw.githubusercontent.com/example/script3.lua")
+for i = 1, 10 do
+    createLoadstringButton(ltContent, "✨ Life Together Script " .. i, 56 + ((i - 1) * 42), "https://raw.githubusercontent.com/example/script" .. i .. ".lua")
+end
 
 passBox.FocusLost:Connect(function(enterPressed)
     if not enterPressed then return end
@@ -1443,7 +1427,7 @@ passBox.FocusLost:Connect(function(enterPressed)
 end)
 
 
--- 9. Player List & Game Time Section (With Search & Session Tracker)
+-- 9. Player List & Game Time Section
 local ptFF = CreateSection("PlayTime", 600)
 local ptHeader = Instance.new("TextLabel", ptFF)
 ptHeader.Size = UDim2.new(1, -20, 0, 36)
@@ -1532,6 +1516,14 @@ local function refreshServerPlayerList()
     end
     plScrollList.CanvasSize = UDim2.new(0, 0, 0, yPos)
 end
+
+plSearchBox:GetPropertyChangedSignal("Text"):Connect(refreshServerPlayerList)
+task.spawn(function()
+    while true do
+        task.wait(1)
+        pcall(refreshServerPlayerList)
+    end
+end)
 
 plSearchBox:GetPropertyChangedSignal("Text"):Connect(refreshServerPlayerList)
 task.spawn(function()
@@ -1695,14 +1687,14 @@ end)
 
 
 -- 11. Enhanced FPS Section
-local fpsFF = CreateSection("FPS", 320)
+local fpsFF = CreateSection("FPS", 220)
 local titleLbl = Instance.new("TextLabel", fpsFF)
 titleLbl.Size = UDim2.new(1, 0, 0, 28)
 titleLbl.BackgroundColor3 = Color3.fromRGB(150, 0, 0)
 titleLbl.TextColor3 = Color3.new(1, 1, 1)
 titleLbl.Font = Enum.Font.SourceSansBold 
 titleLbl.TextSize = 14
-titleLbl.Text = "📊 Enhanced FPS & Booster"
+titleLbl.Text = "📊 Enhanced FPS & Boosters"
 titleLbl.ZIndex = 4
 
 local fpsLbl = Instance.new("TextLabel", fpsFF)
@@ -1717,9 +1709,9 @@ fpsLbl.Text = "FPS: Measuring..."
 fpsLbl.ZIndex = 4
 Instance.new("UICorner", fpsLbl).CornerRadius = UDim.new(0, 6)
 
-createLoadstringButton(fpsFF, "⚡ Run FPS Booster Script 1", 72, "https://raw.githubusercontent.com/example/fps1.lua")
-createLoadstringButton(fpsFF, "⚡ Run FPS Booster Script 2", 120, "https://raw.githubusercontent.com/example/fps2.lua")
-createLoadstringButton(fpsFF, "⚡ Run FPS Booster Script 3", 168, "https://raw.githubusercontent.com/example/fps3.lua")
+createLoadstringButton(fpsFF, "⚡ Ultra Antilag", 72, "https://scriptblox.com/raw/Universal-Script-Extra-Antilag-(Open-source)-229552")
+createLoadstringButton(fpsFF, "⚡ Antilag", 114, "https://scriptblox.com/raw/Universal-Script-Antilag-by-DaMieN-172219")
+createLoadstringButton(fpsFF, "⚡ Fps Booster", 156, "https://scriptblox.com/raw/Universal-Script-Optiz-FpsBooster-60070")
 
 task.spawn(function()
     local lastTick = tick()
@@ -1731,7 +1723,7 @@ task.spawn(function()
             local currentFPS = math.floor((frameCount / (tick() - lastTick)) + 0.5)
             frameCount = 0
             lastTick = tick()
-            fpsLbl.Text = "FPS: " + currentFPS
+            fpsLbl.Text = "FPS: " .. currentFPS
         end
     end)
 end)
@@ -1755,7 +1747,7 @@ rjBtn.MouseButton1Click:Connect(function()
 end)
 
 
--- 13. Notes Section (With Full Complete Feature Documentation)
+-- 13. Notes Section
 local notesFF = CreateSection("Notes", 520)
 local notesHeader = Instance.new("TextLabel", notesFF)
 notesHeader.Size = UDim2.new(1, -20, 0, 36)
@@ -1779,25 +1771,25 @@ notesBody.TextSize = 13
 notesBody.TextXAlignment = Enum.TextXAlignment.Left
 notesBody.TextYAlignment = Enum.TextYAlignment.Top
 notesBody.Text = [[
-• TARGETING: Search player name/display, View online status,Thumbnail preview, Goto Target Teleport, Mouthbang, Back Bang, Front Sit, Front Headsit, Orbit Target, Aimbot, ESP, View/Unview.
+• TARGETING: Search player name/display, View online status, Thumbnail preview, Goto Target Teleport, Mouthbang, Back Bang, Front Sit, Front Headsit, Orbit Target, Aimbot, ESP, View/Unview.
 • SHIELD: Smart Anti-Sit, Anti-Void, Anti-Fling, Anti-Teleport Kill, Anti-Glitch, Anti-Sit V2.
-• ANTIBANG: Custom Speed AntiBang protection & script integration slots.
+• ANTIBANG: Custom Speed AntiBang protection & 10 loadstring slots.
 • PLAYER: Mobile Fly (ON/OFF), WalkSpeed, JumpPower, Infinite Jump, Noclip, ESP, Walkfling (Muffins Fling Engine).
 • FLING ALL: Live Search Box + Interactive Player List Checkboxes + Start/Stop Fling Selected/All.
-• ALL SPAM & SCRIPT: Multiple spammer tools and custom loadstring script hubs.
-• LIFE TOGETHER: PIN-locked exclusive map scripts & utilities.
+• ALL SPAM & SCRIPT: Multiple spammer tools and 10 loadstring slots each.
+• LIFE TOGETHER: PIN-locked exclusive map scripts with 10 loadstring slots.
 • PLAYER LIST & TIME: Live server player search + individual session/game time tracker.
 • ANTI-AFK: Ayanuu AFK engine with custom rain UI, timer, and Kicks Prevented counter.
-• ENHANCED FPS: Live FPS counter and booster loadstrings.
+• ENHANCED FPS: Live FPS counter and Ultra Antilag, Antilag, Fps Booster.
 • REJOIN: Instant server rejoin button.
-• THEME: GUI Size control, 5 Background Image slots, 5 Floating Icon Image slots, Transparency slider, Rainbow GUI mode, Rainbow Icon mode, and Destroy GUI button.
+• THEME: GUI Size control, 10 Background Image slots, 10 Floating Icon Image slots, Transparency slider, Rainbow GUI/Icon modes, and Destroy GUI button.
 ]]
 notesBody.ZIndex = 4
 Instance.new("UICorner", notesBody).CornerRadius = UDim.new(0, 8)
 
 
--- 14. Theme Tab
-local themeFF = CreateSection("Theme", 720)
+-- 14. Theme Tab - 10 Background Image Slots & 10 Floating Icon Image Slots
+local themeFF = CreateSection("Theme", 1100)
 local themeHeader = Instance.new("TextLabel", themeFF)
 themeHeader.Size = UDim2.new(1, -20, 0, 36)
 themeHeader.Position = UDim2.new(0, 10, 0, 10)
@@ -1805,11 +1797,10 @@ themeHeader.BackgroundColor3 = Color3.fromRGB(100, 0, 150)
 themeHeader.TextColor3 = Color3.new(1, 1, 1)
 themeHeader.Font = Enum.Font.SourceSansBold 
 themeHeader.TextSize = 17
-themeHeader.Text = "🎨 Theme & Customization"
+themeHeader.Text = "🎨 Theme & Customization (10 Slots)"
 themeHeader.ZIndex = 4
 Instance.new("UICorner", themeHeader).CornerRadius = UDim.new(0, 6)
 
--- Width & Height Controls
 local sizeTitle = Instance.new("TextLabel", themeFF)
 sizeTitle.Size = UDim2.new(1, -20, 0, 24)
 sizeTitle.Position = UDim2.new(0, 10, 0, 56)
@@ -1840,7 +1831,7 @@ sizeBox.FocusLost:Connect(function(enter)
     end
 end)
 
--- 5 Background Image Slots
+-- 10 Background Image Slots
 local imgTitle = Instance.new("TextLabel", themeFF)
 imgTitle.Size = UDim2.new(1, -20, 0, 24)
 imgTitle.Position = UDim2.new(0, 10, 0, 126)
@@ -1848,7 +1839,7 @@ imgTitle.BackgroundTransparency = 1
 imgTitle.TextColor3 = Color3.fromRGB(220, 220, 220)
 imgTitle.Font = Enum.Font.SourceSansBold
 imgTitle.TextSize = 14
-imgTitle.Text = "Background Image Slots (1 - 5):"
+imgTitle.Text = "Background Image Slots (1 - 10):"
 imgTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 local customAssetIds = {
@@ -1856,10 +1847,15 @@ local customAssetIds = {
     "rbxassetid://1851912648",
     "rbxassetid://6023426915",
     "rbxassetid://6034293931",
-    "rbxassetid://6034294025"
+    "rbxassetid://6034294025",
+    "rbxassetid://6031094678",
+    "rbxassetid://6031097225",
+    "rbxassetid://6031097277",
+    "rbxassetid://6034293855",
+    "rbxassetid://6034293950"
 }
 
-for i = 1, 5 do
+for i = 1, 10 do
     local imgBtn = Instance.new("TextButton", themeFF)
     imgBtn.Size = UDim2.new(1, -20, 0, 28)
     imgBtn.Position = UDim2.new(0, 10, 0, 154 + ((i - 1) * 33))
@@ -1876,15 +1872,15 @@ for i = 1, 5 do
     end)
 end
 
--- 5 Icon Image Slots
+-- 10 Icon Image Slots
 local iconImgTitle = Instance.new("TextLabel", themeFF)
 iconImgTitle.Size = UDim2.new(1, -20, 0, 24)
-iconImgTitle.Position = UDim2.new(0, 10, 0, 325)
+iconImgTitle.Position = UDim2.new(0, 10, 0, 488)
 iconImgTitle.BackgroundTransparency = 1
 iconImgTitle.TextColor3 = Color3.fromRGB(220, 220, 220)
 iconImgTitle.Font = Enum.Font.SourceSansBold
 iconImgTitle.TextSize = 14
-iconImgTitle.Text = "Floating Icon Image Slots (1 - 5):"
+iconImgTitle.Text = "Floating Icon Image Slots (1 - 10):"
 iconImgTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 local iconAssetIds = {
@@ -1892,13 +1888,18 @@ local iconAssetIds = {
     "rbxassetid://6023426915",
     "rbxassetid://1851912648",
     "rbxassetid://6034293931",
-    "rbxassetid://6034294025"
+    "rbxassetid://6034294025",
+    "rbxassetid://6031094678",
+    "rbxassetid://6031097225",
+    "rbxassetid://6031097277",
+    "rbxassetid://6034293855",
+    "rbxassetid://6034293950"
 }
 
-for i = 1, 5 do
+for i = 1, 10 do
     local iconImgBtn = Instance.new("TextButton", themeFF)
     iconImgBtn.Size = UDim2.new(1, -20, 0, 28)
-    iconImgBtn.Position = UDim2.new(0, 10, 0, 353 + ((i - 1) * 33))
+    iconImgBtn.Position = UDim2.new(0, 10, 0, 516 + ((i - 1) * 33))
     iconImgBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
     iconImgBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
     iconImgBtn.Font = Enum.Font.SourceSansBold
@@ -1912,10 +1913,9 @@ for i = 1, 5 do
     end)
 end
 
--- Background Transparency Slider (1-100)
 local transTitle = Instance.new("TextLabel", themeFF)
 transTitle.Size = UDim2.new(1, -20, 0, 24)
-transTitle.Position = UDim2.new(0, 10, 0, 524)
+transTitle.Position = UDim2.new(0, 10, 0, 850)
 transTitle.BackgroundTransparency = 1
 transTitle.TextColor3 = Color3.fromRGB(220, 220, 220)
 transTitle.Font = Enum.Font.SourceSansBold
@@ -1925,7 +1925,7 @@ transTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 local transBox = Instance.new("TextBox", themeFF)
 transBox.Size = UDim2.new(1, -20, 0, 35)
-transBox.Position = UDim2.new(0, 10, 0, 550)
+transBox.Position = UDim2.new(0, 10, 0, 876)
 transBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 transBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 transBox.Font = Enum.Font.SourceSansBold
@@ -1943,19 +1943,17 @@ transBox.FocusLost:Connect(function(enter)
     end
 end)
 
--- Rainbow Toggles
-CreateToggleSwitch(themeFF, "Rainbow GUI Mode", 594, function(state)
+CreateToggleSwitch(themeFF, "Rainbow GUI Mode", 920, function(state)
     rainbowGuiActive = state
 end, false)
 
-CreateToggleSwitch(themeFF, "Rainbow Icon Mode", 642, function(state)
+CreateToggleSwitch(themeFF, "Rainbow Icon Mode", 968, function(state)
     rainbowIconActive = state
 end, false)
 
--- Destroy GUI Button
 local destroyGuiBtn = Instance.new("TextButton", themeFF)
 destroyGuiBtn.Size = UDim2.new(1, -20, 0, 38)
-destroyGuiBtn.Position = UDim2.new(0, 10, 0, 690)
+destroyGuiBtn.Position = UDim2.new(0, 10, 0, 1020)
 destroyGuiBtn.BackgroundColor3 = Color3.fromRGB(200, 30, 30)
 destroyGuiBtn.TextColor3 = Color3.new(1, 1, 1)
 destroyGuiBtn.Font = Enum.Font.SourceSansBold
