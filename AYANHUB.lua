@@ -900,8 +900,10 @@ task.spawn(function()
     end
 end)
 
-for i = 1, 10 do
-    createLoadstringButton(shield2FF, "🛡️ AntiBang Script " .. i, 110 + ((i - 1) * 42), "https://raw.githubusercontent.com/example/antibang" .. i .. ".lua")
+createLoadstringButton(shield2FF, "🛡️ AntiBang Script 1", 110, "Aapki_Pehli_Script_Ka_Link")
+createLoadstringButton(shield2FF, "🛡️ AntiBang Script 2", 158, "Aapki_Doosri_Script_Ka_Link")
+createLoadstringButton(shield2FF, "🛡️ AntiBang Script 3", 206, "Aapki_Teesri_Script_Ka_Link")
+
 end
 
 R.Heartbeat:Connect(function()
