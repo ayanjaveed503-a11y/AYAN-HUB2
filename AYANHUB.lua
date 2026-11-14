@@ -851,8 +851,8 @@ CreateToggleSwitch(shield1FF, "Anti sit on off (antisitv2)", 288, function(v)
 end, false)
 
 
--- 3. AntiBang Section (Shield2) - 10 Loadstring slots added
-local shield2FF = CreateSection("Shield2", 520)
+-- 3. AntiBang Section (Shield2) - 13 Loadstring slots added
+local shield2FF = CreateSection("Shield2", 750)
 local s2Header = Instance.new("TextLabel", shield2FF)
 s2Header.Size = UDim2.new(1, -20, 0, 36)
 s2Header.Position = UDim2.new(0, 10, 0, 10)
@@ -860,7 +860,7 @@ s2Header.BackgroundColor3 = Color3.fromRGB(150, 20, 20)
 s2Header.TextColor3 = Color3.new(1, 1, 1)
 s2Header.Font = Enum.Font.SourceSansBold 
 s2Header.TextSize = 17
-s2Header.Text = "🛡️ AntiBang & 10 Loadstrings"
+s2Header.Text = "🛡️ AntiBang & Loadstrings"
 s2Header.ZIndex = 4
 Instance.new("UICorner", s2Header).CornerRadius = UDim.new(0, 6)
 
@@ -914,8 +914,6 @@ createLoadstringButton(shield2FF, "🛡️ AntiBang Script 11", 590, "Aapki_Gyar
 createLoadstringButton(shield2FF, "🛡️ AntiBang Script 12", 638, "Aapki_Barahv_Script_Ka_Link")
 createLoadstringButton(shield2FF, "🛡️ AntiBang Script 13", 686, "Aapki_Terahv_Script_Ka_Link")
 
-end
-
 R.Heartbeat:Connect(function()
     pcall(function()
         local char = LP.Character
@@ -941,7 +939,6 @@ R.Heartbeat:Connect(function()
         if Toggles1.AntiGlitch and vel > 120 then hrp.CFrame = hrp.CFrame + Vector3.new(0, 3, 0) end
     end)
 end)
-
 
 -- 4. Player Section
 local playerFF = CreateSection("Player", 550)
@@ -1156,7 +1153,7 @@ R.PostSimulation:Connect(function()
 end)
 
 
--- 5. Fling All Tab[span_0](start_span)[span_0](end_span)
+-- 5. Fling All Tab
 local flingAllFF = CreateSection("FlingAll", 420)
 local faHeader = Instance.new("TextLabel", flingAllFF)
 faHeader.Size = UDim2.new(1, -20, 0, 36)
@@ -1320,9 +1317,8 @@ stopFlingAllBtn.MouseButton1Click:Connect(function()
     flingAllActive = false
 end)
 
-
 -- 6. All Spam Section - 10 Loadstring slots added
-local allSpamFF = CreateSection("AllSpam", 500)
+local allSpamFF = CreateSection("AllSpam", 550)
 local asHeader = Instance.new("TextLabel", allSpamFF)
 asHeader.Size = UDim2.new(1, -20, 0, 36)
 asHeader.Position = UDim2.new(0, 10, 0, 10)
@@ -1330,10 +1326,9 @@ asHeader.BackgroundColor3 = Color3.fromRGB(60, 0, 120)
 asHeader.TextColor3 = Color3.new(1, 1, 1)
 asHeader.Font = Enum.Font.SourceSansBold 
 asHeader.TextSize = 17
-asHeader.Text = "📢 All Spam & 10 Loadstrings"
+asHeader.Text = "📢 All Spam & Loadstrings"
 asHeader.ZIndex = 4
 Instance.new("UICorner", asHeader).CornerRadius = UDim.new(0, 6)
-
 
 createLoadstringButton(allSpamFF, "💬 Spam Script 1", 56, "Aapki_Pehli_Script_Ka_Link")
 createLoadstringButton(allSpamFF, "💬 Spam Script 2", 104, "Aapki_Doosri_Script_Ka_Link")
@@ -1346,11 +1341,9 @@ createLoadstringButton(allSpamFF, "💬 Spam Script 8", 392, "Aapki_Aathv_Script
 createLoadstringButton(allSpamFF, "💬 Spam Script 9", 440, "Aapki_Nauv_Script_Ka_Link")
 createLoadstringButton(allSpamFF, "💬 Spam Script 10", 488, "Aapki_Dasv_Script_Ka_Link")
 
-end
-
 
 -- 7. Script Section - 10 Loadstring slots added
-local mastScriptFF = CreateSection("MastScript", 500)
+local mastScriptFF = CreateSection("MastScript", 550)
 local msHeader = Instance.new("TextLabel", mastScriptFF)
 msHeader.Size = UDim2.new(1, -20, 0, 36)
 msHeader.Position = UDim2.new(0, 10, 0, 10)
@@ -1358,27 +1351,24 @@ msHeader.BackgroundColor3 = Color3.fromRGB(120, 0, 60)
 msHeader.TextColor3 = Color3.new(1, 1, 1)
 msHeader.Font = Enum.Font.SourceSansBold 
 msHeader.TextSize = 17
-msHeader.Text = "🔥 Script Section & 10 Loadstrings"
+msHeader.Text = "🔥 Script Section & Loadstrings"
 msHeader.ZIndex = 4
 Instance.new("UICorner", msHeader).CornerRadius = UDim.new(0, 6)
 
-for
-createLoadstringButton(scriptsFF, "📜 Script Hub Item 1", 56, "Aapki_Pehli_Script_Ka_Link")
-createLoadstringButton(scriptsFF, "📜 Script Hub Item 2", 104, "Aapki_Doosri_Script_Ka_Link")
-createLoadstringButton(scriptsFF, "📜 Script Hub Item 3", 152, "Aapki_Teesri_Script_Ka_Link")
-createLoadstringButton(scriptsFF, "📜 Script Hub Item 4", 200, "Aapki_Chauthi_Script_Ka_Link")
-createLoadstringButton(scriptsFF, "📜 Script Hub Item 5", 248, "Aapki_Paanchv_Script_Ka_Link")
-createLoadstringButton(scriptsFF, "📜 Script Hub Item 6", 296, "Aapki_Chhathi_Script_Ka_Link")
-createLoadstringButton(scriptsFF, "📜 Script Hub Item 7", 344, "Aapki_Saatv_Script_Ka_Link")
-createLoadstringButton(scriptsFF, "📜 Script Hub Item 8", 392, "Aapki_Aathv_Script_Ka_Link")
-createLoadstringButton(scriptsFF, "📜 Script Hub Item 9", 440, "Aapki_Nauv_Script_Ka_Link")
-createLoadstringButton(scriptsFF, "📜 Script Hub Item 10", 488, "Aapki_Dasv_Script_Ka_Link")
-
-end
+createLoadstringButton(mastScriptFF, "📜 Script Hub Item 1", 56, "Aapki_Pehli_Script_Ka_Link")
+createLoadstringButton(mastScriptFF, "📜 Script Hub Item 2", 104, "Aapki_Doosri_Script_Ka_Link")
+createLoadstringButton(mastScriptFF, "📜 Script Hub Item 3", 152, "Aapki_Teesri_Script_Ka_Link")
+createLoadstringButton(mastScriptFF, "📜 Script Hub Item 4", 200, "Aapki_Chauthi_Script_Ka_Link")
+createLoadstringButton(mastScriptFF, "📜 Script Hub Item 5", 248, "Aapki_Paanchv_Script_Ka_Link")
+createLoadstringButton(mastScriptFF, "📜 Script Hub Item 6", 296, "Aapki_Chhathi_Script_Ka_Link")
+createLoadstringButton(mastScriptFF, "📜 Script Hub Item 7", 344, "Aapki_Saatv_Script_Ka_Link")
+createLoadstringButton(mastScriptFF, "📜 Script Hub Item 8", 392, "Aapki_Aathv_Script_Ka_Link")
+createLoadstringButton(mastScriptFF, "📜 Script Hub Item 9", 440, "Aapki_Nauv_Script_Ka_Link")
+createLoadstringButton(mastScriptFF, "📜 Script Hub Item 10", 488, "Aapki_Dasv_Script_Ka_Link")
 
 
 -- 8. Life Together Section - 10 Loadstring slots added
-local lifeTogetherFF = CreateSection("LifeTogether", 520)
+local lifeTogetherFF = CreateSection("LifeTogether", 550)
 
 local lockScreen = Instance.new("Frame", lifeTogetherFF)
 lockScreen.Size = UDim2.new(1, 0, 1, 0)
@@ -1426,7 +1416,7 @@ local ltContent = Instance.new("ScrollingFrame", lifeTogetherFF)
 ltContent.Size = UDim2.new(1, 0, 1, 0)
 ltContent.Position = UDim2.new(0, 0, 0, 0)
 ltContent.BackgroundTransparency = 1
-ltContent.CanvasSize = UDim2.new(0, 0, 0, 500)
+ltContent.CanvasSize = UDim2.new(0, 0, 0, 550)
 ltContent.ScrollBarThickness = 4
 ltContent.Visible = false
 ltContent.ZIndex = 4
@@ -1438,23 +1428,20 @@ ltHeader.BackgroundColor3 = Color3.fromRGB(0, 60, 120)
 ltHeader.TextColor3 = Color3.new(1, 1, 1)
 ltHeader.Font = Enum.Font.SourceSansBold 
 ltHeader.TextSize = 17
-ltHeader.Text = "🏡 Life Together & 10 Loadstrings"
+ltHeader.Text = "🏡 Life Together & Loadstrings"
 ltHeader.ZIndex = 5
 Instance.new("UICorner", ltHeader).CornerRadius = UDim.new(0, 6)
 
-for
-createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 1", 56, "Aapki_Pehli_Script_Ka_Link")
-createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 2", 104, "Aapki_Doosri_Script_Ka_Link")
-createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 3", 152, "Aapki_Teesri_Script_Ka_Link")
-createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 4", 200, "Aapki_Chauthi_Script_Ka_Link")
-createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 5", 248, "Aapki_Paanchv_Script_Ka_Link")
-createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 6", 296, "Aapki_Chhathi_Script_Ka_Link")
-createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 7", 344, "Aapki_Saatv_Script_Ka_Link")
-createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 8", 392, "Aapki_Aathv_Script_Ka_Link")
-createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 9", 440, "Aapki_Nauv_Script_Ka_Link")
-createLoadstringButton(lifeTogetherFF, "🏠 Life Together Script 10", 488, "Aapki_Dasv_Script_Ka_Link")
-
-end
+createLoadstringButton(ltContent, "🏠 Life Together Script 1", 56, "Aapki_Pehli_Script_Ka_Link")
+createLoadstringButton(ltContent, "🏠 Life Together Script 2", 104, "Aapki_Doosri_Script_Ka_Link")
+createLoadstringButton(ltContent, "🏠 Life Together Script 3", 152, "Aapki_Teesri_Script_Ka_Link")
+createLoadstringButton(ltContent, "🏠 Life Together Script 4", 200, "Aapki_Chauthi_Script_Ka_Link")
+createLoadstringButton(ltContent, "🏠 Life Together Script 5", 248, "Aapki_Paanchv_Script_Ka_Link")
+createLoadstringButton(ltContent, "🏠 Life Together Script 6", 296, "Aapki_Chhathi_Script_Ka_Link")
+createLoadstringButton(ltContent, "🏠 Life Together Script 7", 344, "Aapki_Saatv_Script_Ka_Link")
+createLoadstringButton(ltContent, "🏠 Life Together Script 8", 392, "Aapki_Aathv_Script_Ka_Link")
+createLoadstringButton(ltContent, "🏠 Life Together Script 9", 440, "Aapki_Nauv_Script_Ka_Link")
+createLoadstringButton(ltContent, "🏠 Life Together Script 10", 488, "Aapki_Dasv_Script_Ka_Link")
 
 passBox.FocusLost:Connect(function(enterPressed)
     if not enterPressed then return end
@@ -1566,15 +1553,6 @@ task.spawn(function()
         pcall(refreshServerPlayerList)
     end
 end)
-
-plSearchBox:GetPropertyChangedSignal("Text"):Connect(refreshServerPlayerList)
-task.spawn(function()
-    while true do
-        task.wait(1)
-        pcall(refreshServerPlayerList)
-    end
-end)
-
 
 -- 10. Anti-AFK Section
 local afkFF = CreateSection("AFK", 230)
