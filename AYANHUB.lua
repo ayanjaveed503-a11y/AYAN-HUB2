@@ -900,7 +900,7 @@ task.spawn(function()
     end
 end)
 
-createLoadstringButton(shield2FF, "🛡️ AntiBang Script 1", 110, "Aapki_Pehli_Script_Ka_Link")
+createLoadstringButton(shield2FF, "🛡️ BEST ANTIBANG EVER", 110, "https://pastebin.com/raw/80Nva2Fj")
 createLoadstringButton(shield2FF, "🛡️ AntiBangV2", 158, "https://scriptblox.com/raw/Universal-Script-Anti-Bang-48256")
 createLoadstringButton(shield2FF, "🛡️ AntiBang Script 3", 206, "Aapki_Teesri_Script_Ka_Link")
 createLoadstringButton(shield2FF, "🛡️ AntiBang Script 4", 254, "Aapki_Chauthi_Script_Ka_Link")
