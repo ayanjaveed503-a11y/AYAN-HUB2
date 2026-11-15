@@ -76,7 +76,7 @@ mainBgImage.Name = "HubBackground"
 mainBgImage.Size = UDim2.new(1, 0, 1, 0)
 mainBgImage.Position = UDim2.new(0, 0, 0, 0)
 mainBgImage.BackgroundTransparency = 0.15
-mainBgImage.Image = "rbxassetid://81902757422115"
+mainBgImage.Image = "rbxassetid://133674888961299"
 mainBgImage.ScaleType = Enum.ScaleType.Stretch
 mainBgImage.ZIndex = 1
 Instance.new("UICorner", mainBgImage).CornerRadius = UDim.new(0, 14)
@@ -149,7 +149,7 @@ tgImage.Size = UDim2.new(1, -8, 1, -8)
 tgImage.Position = UDim2.new(0.5, 0, 0.5, 0)
 tgImage.AnchorPoint = Vector2.new(0.5, 0.5)
 tgImage.BackgroundTransparency = 1
-tgImage.Image = "rbxassetid://116161784313166"
+tgImage.Image = "rbxassetid://74135774581528"
 tgImage.ZIndex = 3
 Instance.new("UICorner", tgImage).CornerRadius = UDim.new(0, 10)
 
