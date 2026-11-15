@@ -1729,7 +1729,7 @@ fpsLbl.Text = "FPS: Measuring..."
 fpsLbl.ZIndex = 4
 Instance.new("UICorner", fpsLbl).CornerRadius = UDim.new(0, 6)
 
-createLoadstringButton(fpsFF, "⚡ Ultra Antilag", 72, "https://scriptblox.com/raw/Universal-Script-Extra-Antilag-(Open-source)-229552")
+createLoadstringButton(fpsFF, "⚡ Ultra Antilag+antifire", 72, "https://scriptblox.com/raw/Universal-Script-Extra-Antilag-(Open-source)-229552")
 createLoadstringButton(fpsFF, "⚡ Antilag", 114, "https://scriptblox.com/raw/Universal-Script-Antilag-by-DaMieN-172219")
 createLoadstringButton(fpsFF, "⚡ Fps Booster", 156, "https://scriptblox.com/raw/Universal-Script-Optiz-FpsBooster-60070")
 
