@@ -1990,4 +1990,213 @@ end)
 local sizeTitle = Instance.new("TextLabel", themeFF)
 sizeTitle.Size = UDim2.new(1, -20, 0, 24)
 sizeTitle.Position = UDim2.new(0, 10, 0, 192)
-sizeTitle.BackgroundTransparency
+sizeTitle.BackgroundTransparency = 1
+sizeTitle.TextColor3 = Color3.fromRGB(220, 220, 220)
+sizeTitle.Font = Enum.Font.SourceSansBold
+sizeTitle.TextSize = 14
+sizeTitle.Text = "GUI Size (Width, Height):"
+sizeTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+local sizeBox = Instance.new("TextBox", themeFF)
+sizeBox.Size = UDim2.new(1, -20, 0, 35)
+sizeBox.Position = UDim2.new(0, 10, 0, 218)
+sizeBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+sizeBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+sizeBox.Font = Enum.Font.SourceSansBold
+sizeBox.TextSize = 14
+sizeBox.Text = "600, 420"
+sizeBox.ZIndex = 5
+Instance.new("UICorner", sizeBox).CornerRadius = UDim.new(0, 6)
+
+sizeBox.FocusLost:Connect(function(enter)
+    if enter then
+        local w, h = string.match(sizeBox.Text, "(%d+)%s*,%s*(%d+)")
+        if w and h then
+            m.Size = UDim2.new(0, tonumber(w), 0, tonumber(h))
+        end
+    end
+end)
+
+local iconImgTitle = Instance.new("TextLabel", themeFF)
+iconImgTitle.Size = UDim2.new(1, -20, 0, 24)
+iconImgTitle.Position = UDim2.new(0, 10, 0, 270)
+iconImgTitle.BackgroundTransparency = 1
+iconImgTitle.TextColor3 = Color3.fromRGB(220, 220, 220)
+iconImgTitle.Font = Enum.Font.SourceSansBold
+iconImgTitle.TextSize = 14
+iconImgTitle.Text = "Floating Icon Image Slots (1 - 10):"
+iconImgTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+local iconAssetIds = {
+    "rbxassetid://125157479493186",
+    "rbxassetid://116161784313166",
+    "rbxassetid://6023426915",
+    "rbxassetid://1851912648",
+    "rbxassetid://6034293931",
+    "rbxassetid://6034294025",
+    "rbxassetid://6031094678",
+    "rbxassetid://6031097225",
+    "rbxassetid://6031097277",
+    "rbxassetid://6034293855"
+}
+
+for i = 1, 10 do
+    local iconImgBtn = Instance.new("TextButton", themeFF)
+    iconImgBtn.Size = UDim2.new(1, -20, 0, 28)
+    iconImgBtn.Position = UDim2.new(0, 10, 0, 300 + ((i - 1) * 33))
+    iconImgBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    iconImgBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    iconImgBtn.Font = Enum.Font.SourceSansBold
+    iconImgBtn.TextSize = 13
+    iconImgBtn.Text = "Load Icon Image Slot " .. i
+    iconImgBtn.ZIndex = 5
+    Instance.new("UICorner", iconImgBtn).CornerRadius = UDim.new(0, 6)
+    
+    iconImgBtn.MouseButton1Click:Connect(function()
+        tgImage.Image = iconAssetIds[i]
+    end)
+end
+
+CreateToggleSwitch(themeFF, "Rainbow GUI Mode", 640, function(state)
+    rainbowGuiActive = state
+    if state then useGuiSliderColor = false end
+end, false)
+
+CreateToggleSwitch(themeFF, "Rainbow GUI Background Mode", 688, function(state)
+    rainbowBgActive = state
+    if state then useBgSliderColor = false end
+end, false)
+
+local destroyGuiBtn = Instance.new("TextButton", themeFF)
+destroyGuiBtn.Size = UDim2.new(1, -20, 0, 38)
+destroyGuiBtn.Position = UDim2.new(0, 10, 0, 744)
+destroyGuiBtn.BackgroundColor3 = Color3.fromRGB(200, 30, 30)
+destroyGuiBtn.TextColor3 = Color3.new(1, 1, 1)
+destroyGuiBtn.Font = Enum.Font.SourceSansBold
+destroyGuiBtn.TextSize = 15
+destroyGuiBtn.Text = "🗑️ Destroy GUI (Remove)"
+destroyGuiBtn.ZIndex = 5
+Instance.new("UICorner", destroyGuiBtn).CornerRadius = UDim.new(0, 8)
+
+destroyGuiBtn.MouseButton1Click:Connect(function()
+    g:Destroy()
+end)
+
+-- 15. Feedback Tab
+local feedbackFF = CreateSection("Feedback", 450)
+local fbHeader = Instance.new("TextLabel", feedbackFF)
+fbHeader.Size = UDim2.new(1, -20, 0, 36)
+fbHeader.Position = UDim2.new(0, 10, 0, 10)
+fbHeader.BackgroundColor3 = Color3.fromRGB(0, 120, 150)
+fbHeader.TextColor3 = Color3.new(1, 1, 1)
+fbHeader.Font = Enum.Font.SourceSansBold 
+fbHeader.TextSize = 17
+fbHeader.Text = "💬 Send Feedback to AYANUU"
+fbHeader.ZIndex = 4
+Instance.new("UICorner", fbHeader).CornerRadius = UDim.new(0, 6)
+
+local fbNoticeLbl = Instance.new("TextLabel", feedbackFF)
+fbNoticeLbl.Size = UDim2.new(1, -20, 0, 55)
+fbNoticeLbl.Position = UDim2.new(0, 10, 0, 52)
+fbNoticeLbl.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+fbNoticeLbl.BackgroundTransparency = 0.35
+fbNoticeLbl.TextColor3 = Color3.fromRGB(0, 200, 255)
+fbNoticeLbl.Font = Enum.Font.SourceSansBold
+fbNoticeLbl.TextSize = 12
+fbNoticeLbl.Text = "AGAR APKO YE SCRIPT PASAND AAYI FEEDBACK DENA OUR AGAR KISI OUR APNI SCRIPT YA SPAM ADD KARVANE HO TO SCRIPT BHEJ DO APNI AGAR KOI BUGS HO TO BATA DENA"
+fbNoticeLbl.TextWrapped = true
+fbNoticeLbl.TextXAlignment = Enum.TextXAlignment.Left
+fbNoticeLbl.TextYAlignment = Enum.TextYAlignment.Top
+fbNoticeLbl.ZIndex = 5
+Instance.new("UICorner", fbNoticeLbl).CornerRadius = UDim.new(0, 6)
+
+local fbTextBox = Instance.new("TextBox", feedbackFF)
+fbTextBox.Size = UDim2.new(1, -20, 0, 90)
+fbTextBox.Position = UDim2.new(0, 10, 0, 114)
+fbTextBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+fbTextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+fbTextBox.Font = Enum.Font.SourceSansBold
+fbTextBox.TextSize = 14
+fbTextBox.Text = ""
+fbTextBox.PlaceholderText = "Type your feedback, script submission or bug report here..."
+fbTextBox.ClearTextOnFocus = false
+fbTextBox.MultiLine = true
+fbTextBox.TextWrapped = true
+fbTextBox.TextYAlignment = Enum.TextYAlignment.Top
+fbTextBox.ZIndex = 5
+Instance.new("UICorner", fbTextBox).CornerRadius = UDim.new(0, 8)
+
+local fbSubmitBtn = Instance.new("TextButton", feedbackFF)
+fbSubmitBtn.Size = UDim2.new(1, -20, 0, 40)
+fbSubmitBtn.Position = UDim2.new(0, 10, 0, 212)
+fbSubmitBtn.BackgroundColor3 = Color3.fromRGB(0, 180, 80)
+fbSubmitBtn.TextColor3 = Color3.new(1, 1, 1)
+fbSubmitBtn.Font = Enum.Font.SourceSansBold
+fbSubmitBtn.TextSize = 15
+fbSubmitBtn.Text = "📤 Submit Feedback"
+fbSubmitBtn.ZIndex = 5
+Instance.new("UICorner", fbSubmitBtn).CornerRadius = UDim.new(0, 8)
+
+local fbStatus = Instance.new("TextLabel", feedbackFF)
+fbStatus.Size = UDim2.new(1, -20, 0, 30)
+fbStatus.Position = UDim2.new(0, 10, 0, 258)
+fbStatus.BackgroundTransparency = 1
+fbStatus.TextColor3 = Color3.fromRGB(0, 255, 0)
+fbStatus.Font = Enum.Font.SourceSansBold
+fbStatus.TextSize = 14
+fbStatus.Text = ""
+fbStatus.ZIndex = 5
+
+local MOCKAPI_URL = "https://6aef2e43b9925b27ce16b743.mockapi.io/v1/:endpoint"
+local feedbackCount = 0
+local cooldownActive = false
+
+fbSubmitBtn.MouseButton1Click:Connect(function()
+    local feedbackText = fbTextBox.Text
+    if feedbackText == "" then
+        fbStatus.Text = "⚠️ Please write something first!"
+        fbStatus.TextColor3 = Color3.fromRGB(255, 50, 50)
+        return
+    end
+
+    if cooldownActive then
+        fbStatus.Text = "⏳ Cooldown active! Please wait before sending more."
+        fbStatus.TextColor3 = Color3.fromRGB(255, 150, 0)
+        return
+    end
+
+    fbSubmitBtn.Text = "Sending..."
+    task.spawn(function()
+        local success, response = pcall(function()
+            local data = {
+                player = LP.Name,
+                userId = LP.UserId,
+                message = feedbackText,
+                timestamp = os.date("%Y-%m-%d %H:%M:%S")
+            }
+            local jsonBody = HttpService:JSONEncode(data)
+            return HttpService:PostAsync(MOCKAPI_URL, jsonBody, Enum.HttpContentType.ApplicationJson)
+        end)
+
+        if success then
+            feedbackCount = feedbackCount + 1
+            fbStatus.Text = "✅ Thank you! Feedback recorded successfully."
+            fbStatus.TextColor3 = Color3.fromRGB(0, 255, 0)
+            fbTextBox.Text = ""
+
+            if feedbackCount >= 2 then
+                cooldownActive = true
+                for i = 50, 1, -1 do
+                    fbSubmitBtn.Text = "Cooldown: " .. i .. "s"
+                    task.wait(1)
+                end
+                feedbackCount = 0
+                cooldownActive = false
+            end
+        else
+            fbStatus.Text = "❌ Failed to send. Check HTTP requests!"
+            fbStatus.TextColor3 = Color3.fromRGB(255, 50, 50)
+        end
+        fbSubmitBtn.Text = "📤 Submit Feedback"
+    end)
+end)
