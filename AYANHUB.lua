@@ -1,11 +1,10 @@
 -- // AYANUU Edition Dedicated to Life Together 🏡 RP
 -- // Developer: AYANUU (+V0_L5)
--- // Universal All-Executor Support,
+-- // Universal All-Executor Support
 
--- Verify Life Together Place ID
 local LIFE_TOGETHER_PLACE_ID = 11732688484
 if game.PlaceId ~= LIFE_TOGETHER_PLACE_ID then
-    print("[Red VIP]: The script works in Life Together as well as other maps.")
+    print("[Blue VIP]: The script works in Life Together as well as other maps.")
 end
 
 local TweenService = game:GetService("TweenService")
@@ -13,15 +12,14 @@ local CoreGui = game:GetService("CoreGui")
 local VirtualUser = game:GetService("VirtualUser")
 local VIM = game:GetService("VirtualInputManager")
 local Lighting = game:GetService("Lighting")
+local HttpService = game:GetService("HttpService")
 local P, R, LP = game:GetService("Players"), game:GetService("RunService"), game:GetService("Players").LocalPlayer
 
--- Safe GUI Parent container (All-Executor compatible)
 local parentGui = (gethui and gethui()) or (CoreGui:FindFirstChild("CoreGui") and CoreGui) or LP:WaitForChild("PlayerGui")
 
 local s = tick()
 local playerJoinTimes = {}
 
--- Track join time for all existing and incoming players
 for _, pl in ipairs(P:GetPlayers()) do
     playerJoinTimes[pl] = tick()
 end
@@ -58,32 +56,21 @@ task.spawn(function()
 end)
 
 local g = Instance.new("ScreenGui", parentGui)
-g.Name = "RedL5xlilrVIP_LifeTogether"
+g.Name = "BlueL5xlilrVIP_LifeTogether"
 g.ResetOnSpawn = false
 
--- Main Frame (With Width & Height Support)
+-- Main Frame
 local m = Instance.new("Frame", g)
 m.Size = UDim2.new(0, 600, 0, 420)
 m.Position = UDim2.new(.2, 0, .18, 0)
 m.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-m.BackgroundTransparency = 0.4
+m.BackgroundTransparency = 0.2
 m.Active = true 
 Instance.new("UICorner", m).CornerRadius = UDim.new(0, 14)
 
--- Custom Background Image (Default Slot 1)
-local mainBgImage = Instance.new("ImageLabel", m)
-mainBgImage.Name = "HubBackground"
-mainBgImage.Size = UDim2.new(1, 0, 1, 0)
-mainBgImage.Position = UDim2.new(0, 0, 0, 0)
-mainBgImage.BackgroundTransparency = 0.15
-mainBgImage.Image = "rbxassetid://133674888961299"
-mainBgImage.ScaleType = Enum.ScaleType.Stretch
-mainBgImage.ZIndex = 1
-Instance.new("UICorner", mainBgImage).CornerRadius = UDim.new(0, 14)
-
 local fireGlow = Instance.new("UIStroke", m)
 fireGlow.Thickness = 3.5
-fireGlow.Color = Color3.fromRGB(255, 50, 0)
+fireGlow.Color = Color3.fromRGB(0, 140, 255)
 
 -- Main Title Bar
 local t = Instance.new("TextLabel", m)
@@ -133,16 +120,16 @@ game:GetService("UserInputService").InputChanged:Connect(function(input)
     end
 end)
 
--- Floating Red Button with Icon & Rainbow/Image Support
+-- Floating Button with Icon Only
 local tg = Instance.new("TextButton", g)
 tg.Size = UDim2.new(0, 65, 0, 65)
 tg.Position = UDim2.new(0.5, -32, 0, 12)
-tg.BackgroundColor3 = Color3.fromRGB(255, 20, 0)
+tg.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 tg.Text = ""
 Instance.new("UICorner", tg).CornerRadius = UDim.new(0, 14)
 local tgStroke = Instance.new("UIStroke", tg)
-tgStroke.Thickness = 2.5
-tgStroke.Color = Color3.fromRGB(255, 255, 255)
+tgStroke.Thickness = 3
+tgStroke.Color = Color3.fromRGB(0, 140, 255)
 
 local tgImage = Instance.new("ImageLabel", tg)
 tgImage.Size = UDim2.new(1, -8, 1, -8)
@@ -166,9 +153,9 @@ end)
 local mn = Instance.new("ScrollingFrame", m)
 mn.Size = UDim2.new(0, 150, 1, 0)
 mn.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-mn.BackgroundTransparency = 0.6
+mn.BackgroundTransparency = 0.4
 mn.ZIndex = 2
-mn.CanvasSize = UDim2.new(0, 0, 0, 750)
+mn.CanvasSize = UDim2.new(0, 0, 0, 820)
 mn.ScrollBarThickness = 3
 Instance.new("UICorner", mn).CornerRadius = UDim.new(0, 12)
 
@@ -177,7 +164,7 @@ local c = Instance.new("Frame", m)
 c.Size = UDim2.new(1, -150, 1, 0)
 c.Position = UDim2.new(0, 150, 0, 0)
 c.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-c.BackgroundTransparency = 0.6
+c.BackgroundTransparency = 0.4
 c.ZIndex = 2
 Instance.new("UICorner", c).CornerRadius = UDim.new(0, 12)
 applyDragging(c)
@@ -185,6 +172,13 @@ applyDragging(c)
 local sections = {}
 local rgbElements = {}
 local softRgbElements = {}
+
+local customGuiColor = Color3.fromRGB(0, 140, 255)
+local customBgColor = Color3.fromRGB(15, 15, 15)
+local useGuiSliderColor = false
+local useBgSliderColor = false
+local rainbowGuiActive = false
+local rainbowBgActive = false
 
 local function SwitchSection(sectionName)
     for name, frame in pairs(sections) do
@@ -199,23 +193,23 @@ local function CreateSection(name, canvasHeight)
     sf.Size = UDim2.new(0, 435, 0, 390)
     sf.Position = UDim2.new(0, 10, 0, 15)
     sf.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    sf.BackgroundTransparency = 0.7
+    sf.BackgroundTransparency = 0.5
     sf.CanvasSize = UDim2.new(0, 0, 0, canvasHeight or 500)
     sf.ScrollBarThickness = 4
     sf.ZIndex = 3
     Instance.new("UICorner", sf).CornerRadius = UDim.new(0, 10)
     sf.Visible = false
     
-    local sectionRedBg = Instance.new("TextLabel", sf)
-    sectionRedBg.Size = UDim2.new(1, 0, 1, 0)
-    sectionRedBg.Position = UDim2.new(0, 0, 0, 50)
-    sectionRedBg.BackgroundTransparency = 1
-    sectionRedBg.Text = "RED"
-    sectionRedBg.TextColor3 = Color3.fromRGB(255, 40, 0)
-    sectionRedBg.TextTransparency = 0.88
-    sectionRedBg.Font = Enum.Font.FredokaOne
-    sectionRedBg.TextSize = 110
-    sectionRedBg.ZIndex = 0
+    local sectionBlueBg = Instance.new("TextLabel", sf)
+    sectionBlueBg.Size = UDim2.new(1, 0, 1, 0)
+    sectionBlueBg.Position = UDim2.new(0, 0, 0, 50)
+    sectionBlueBg.BackgroundTransparency = 1
+    sectionBlueBg.Text = "AYANUU"
+    sectionBlueBg.TextColor3 = Color3.fromRGB(0, 140, 255)
+    sectionBlueBg.TextTransparency = 0.9
+    sectionBlueBg.Font = Enum.Font.FredokaOne
+    sectionBlueBg.TextSize = 100
+    sectionBlueBg.ZIndex = 0
     
     sections[name] = sf
     return sf
@@ -225,8 +219,8 @@ local function B(tx, y, secName)
     local b = Instance.new("TextButton", mn)
     b.Size = UDim2.new(1, -12, 0, 42)
     b.Position = UDim2.new(0, 6, 0, 10 + (y * 48))
-    b.BackgroundColor3 = Color3.fromRGB(40, 10, 10)
-    b.BackgroundTransparency = 0.35
+    b.BackgroundColor3 = Color3.fromRGB(15, 30, 50)
+    b.BackgroundTransparency = 0.3
     b.TextColor3 = Color3.fromRGB(255, 255, 255)
     b.Font = Enum.Font.SourceSansBold 
     b.TextSize = 16 
@@ -235,8 +229,9 @@ local function B(tx, y, secName)
     Instance.new("UICorner", b).CornerRadius = UDim.new(0, 8)
     
     local bStroke = Instance.new("UIStroke", b)
-    bStroke.Thickness = 2
-    bStroke.Color = Color3.fromRGB(255, 100, 0)
+    bStroke.Thickness = 1.5
+    bStroke.Color = Color3.fromRGB(0, 140, 255)
+    table.insert(rgbElements, {Type = "Stroke", Obj = bStroke})
     
     b.MouseButton1Click:Connect(function()
         SwitchSection(secName)
@@ -244,7 +239,6 @@ local function B(tx, y, secName)
     return b 
 end
 
--- Ordered Tabs
 local tb = B("target", 0, "Target")
 local shield1B = B("Shield", 1, "Shield1")
 local shield2B = B("AntiBang", 2, "Shield2")
@@ -259,6 +253,7 @@ local fpsBtn = B("Enhanced FPS", 10, "FPS")
 local rjB = B("Rejoin", 11, "Rejoin")
 local notesB = B("Notes", 12, "Notes")
 local themeB = B("Theme", 13, "Theme")
+local feedbackB = B("Feedback", 14, "Feedback")
 
 local function CreateToggleSwitch(parent, text, yPos, callback, initialState)
     local container = Instance.new("Frame", parent)
@@ -271,7 +266,7 @@ local function CreateToggleSwitch(parent, text, yPos, callback, initialState)
 
     local containerStroke = Instance.new("UIStroke", container)
     containerStroke.Thickness = 1
-    containerStroke.Color = Color3.fromRGB(255, 80, 0)
+    containerStroke.Color = Color3.fromRGB(0, 140, 255)
     table.insert(rgbElements, {Type = "Stroke", Obj = containerStroke})
 
     local lbl = Instance.new("TextLabel", container)
@@ -327,9 +322,6 @@ local function CreateToggleSwitch(parent, text, yPos, callback, initialState)
     return container, setStateUI, lbl
 end
 
--- Global RGB Chroma Loop
-local rainbowGuiActive = false
-local rainbowIconActive = false
 task.spawn(function()
     local hue = 0
     local waveTimer = 0
@@ -346,16 +338,19 @@ task.spawn(function()
         local waveB = math.sin(waveTimer + 3.0) * 0.2 + 0.8
         local seaWaveColor = Color3.new(waveR, waveG, waveB)
         
+        local activeGuiColor = rainbowGuiActive and rgbColor or (useGuiSliderColor and customGuiColor or Color3.fromRGB(0, 140, 255))
+        local activeBgColor = rainbowBgActive and rgbColor or (useBgSliderColor and customBgColor or Color3.fromRGB(15, 15, 15))
+        
         pcall(function()
-            fireGlow.Color = rainbowGuiActive and rgbColor or Color3.fromRGB(255, 50, 0)
-            tgStroke.Color = rainbowIconActive and rgbColor or Color3.fromRGB(255, 255, 255)
+            fireGlow.Color = activeGuiColor
+            m.BackgroundColor3 = activeBgColor
             titleStroke.Color = seaWaveColor
         end)
         
         for _, item in ipairs(rgbElements) do
             pcall(function()
                 if item.Type == "Stroke" then
-                    item.Obj.Color = rainbowGuiActive and rgbColor or Color3.fromRGB(255, 80, 0)
+                    item.Obj.Color = activeGuiColor
                 elseif item.Type == "Frame" then
                     item.Obj.BackgroundColor3 = bgRgbColor
                 end
@@ -376,7 +371,6 @@ task.spawn(function()
     end
 end)
 
--- Helper Loadstring Button Creator
 local function createLoadstringButton(parent, text, yPos, url)
     local btn = Instance.new("TextButton", parent)
     btn.Size = UDim2.new(1, -20, 0, 38)
@@ -396,12 +390,12 @@ local function createLoadstringButton(parent, text, yPos, url)
 end
 
 -- 1. Targeting Section
-local sf = CreateSection("Target", 780)
+local sf = CreateSection("Target", 830)
 sf.Visible = true
 
 local tt2 = Instance.new("TextLabel", sf)
 tt2.Size = UDim2.new(1, 0, 0, 32)
-tt2.BackgroundColor3 = Color3.fromRGB(30, 0, 0)
+tt2.BackgroundColor3 = Color3.fromRGB(0, 30, 60)
 tt2.BackgroundTransparency = 0.35
 tt2.TextColor3 = Color3.new(1, 1, 1)
 tt2.Font = Enum.Font.SourceSansBold 
@@ -452,7 +446,7 @@ table.insert(rgbElements, {Type = "Frame", Obj = targetInfoBox})
 local av = Instance.new("ImageLabel", targetInfoBox)
 av.Size = UDim2.new(0, 85, 0, 85)
 av.Position = UDim2.new(0, 10, 0, 10)
-av.BackgroundColor3 = Color3.fromRGB(100, 0, 0)
+av.BackgroundColor3 = Color3.fromRGB(0, 60, 120)
 av.Visible = false
 av.ZIndex = 5
 Instance.new("UICorner", av).CornerRadius = UDim.new(0, 10)
@@ -521,12 +515,13 @@ local mouthbangActive = false
 local bangActive = false
 local frontsitActive = false
 local frontheadsitActive = false
+local blackBacksitActive = false
 local orbitActive = false
 local aimbotActive = false
 local espActive = false
 local viewActive = false
 
-local setUIMouth, setUIBang, setUIFrontSit, setUIFrontHead, setUIOrbit, setUIAimbot, setUIEsp, setUIView
+local setUIMouth, setUIBang, setUIFrontSit, setUIFrontHead, setUIBlackBacksit, setUIOrbit, setUIAimbot, setUIEsp, setUIView
 
 local function updateTargetSearch()
     local textVal = bx.Text:gsub("%s+", "")
@@ -667,6 +662,9 @@ R.Heartbeat:Connect(function()
         elseif frontheadsitActive then
             if hum then hum.PlatformStand = true end
             hrp.CFrame = tHrp.CFrame * CFrame.new(0, 2.3, 0)
+        elseif blackBacksitActive then
+            if hum then hum.PlatformStand = true end
+            hrp.CFrame = tHrp.CFrame * CFrame.new(0, 0.5, 1.2) * CFrame.Angles(0, 0, 0)
         elseif orbitActive then
             local angle = tick() * 6
             local radius = 5
@@ -716,7 +714,7 @@ R.RenderStepped:Connect(function()
                     local txt = Instance.new("TextLabel", billboard)
                     txt.Size = UDim2.new(1, 0, 1, 0)
                     txt.BackgroundTransparency = 1
-                    txt.TextColor3 = Color3.fromRGB(255, 50, 50)
+                    txt.TextColor3 = Color3.fromRGB(0, 140, 255)
                     txt.Font = Enum.Font.SourceSansBold
                     txt.TextSize = 14
                     txt.Text = pl.Name
@@ -739,6 +737,7 @@ _, setUIMouth = CreateToggleSwitch(sf, "Mouthbang", 355, function(state)
         bangActive = false; if setUIBang then setUIBang(false, true) end
         frontsitActive = false; if setUIFrontSit then setUIFrontSit(false, true) end
         frontheadsitActive = false; if setUIFrontHead then setUIFrontHead(false, true) end
+        blackBacksitActive = false; if setUIBlackBacksit then setUIBlackBacksit(false, true) end
         orbitActive = false; if setUIOrbit then setUIOrbit(false, true) end
     else
         pcall(function() LP.Character.Humanoid.PlatformStand = false end)
@@ -751,6 +750,7 @@ _, setUIBang = CreateToggleSwitch(sf, "Bang (Back)", 403, function(state)
         mouthbangActive = false; if setUIMouth then setUIMouth(false, true) end
         frontsitActive = false; if setUIFrontSit then setUIFrontSit(false, true) end
         frontheadsitActive = false; if setUIFrontHead then setUIFrontHead(false, true) end
+        blackBacksitActive = false; if setUIBlackBacksit then setUIBlackBacksit(false, true) end
         orbitActive = false; if setUIOrbit then setUIOrbit(false, true) end
     else
         pcall(function() LP.Character.Humanoid.PlatformStand = false end)
@@ -763,6 +763,7 @@ _, setUIFrontSit = CreateToggleSwitch(sf, "Front Sit", 451, function(state)
         mouthbangActive = false; if setUIMouth then setUIMouth(false, true) end
         bangActive = false; if setUIBang then setUIBang(false, true) end
         frontheadsitActive = false; if setUIFrontHead then setUIFrontHead(false, true) end
+        blackBacksitActive = false; if setUIBlackBacksit then setUIBlackBacksit(false, true) end
         orbitActive = false; if setUIOrbit then setUIOrbit(false, true) end
     else
         pcall(function() LP.Character.Humanoid.PlatformStand = false end)
@@ -775,44 +776,58 @@ _, setUIFrontHead = CreateToggleSwitch(sf, "Front Headsit", 499, function(state)
         mouthbangActive = false; if setUIMouth then setUIMouth(false, true) end
         bangActive = false; if setUIBang then setUIBang(false, true) end
         frontsitActive = false; if setUIFrontSit then setUIFrontSit(false, true) end
+        blackBacksitActive = false; if setUIBlackBacksit then setUIBlackBacksit(false, true) end
         orbitActive = false; if setUIOrbit then setUIOrbit(false, true) end
     else
         pcall(function() LP.Character.Humanoid.PlatformStand = false end)
     end
 end, false)
 
-_, setUIOrbit = CreateToggleSwitch(sf, "Orbit Target", 547, function(state)
+_, setUIBlackBacksit = CreateToggleSwitch(sf, "Black Backsit", 547, function(state)
+    blackBacksitActive = state
+    if state then
+        mouthbangActive = false; if setUIMouth then setUIMouth(false, true) end
+        bangActive = false; if setUIBang then setUIBang(false, true) end
+        frontsitActive = false; if setUIFrontSit then setUIFrontSit(false, true) end
+        frontheadsitActive = false; if setUIFrontHead then setUIFrontHead(false, true) end
+        orbitActive = false; if setUIOrbit then setUIOrbit(false, true) end
+    else
+        pcall(function() LP.Character.Humanoid.PlatformStand = false end)
+    end
+end, false)
+
+_, setUIOrbit = CreateToggleSwitch(sf, "Orbit Target", 595, function(state)
     orbitActive = state
     if state then
         mouthbangActive = false; if setUIMouth then setUIMouth(false, true) end
         bangActive = false; if setUIBang then setUIBang(false, true) end
         frontsitActive = false; if setUIFrontSit then setUIFrontSit(false, true) end
         frontheadsitActive = false; if setUIFrontHead then setUIFrontHead(false, true) end
+        blackBacksitActive = false; if setUIBlackBacksit then setUIBlackBacksit(false, true) end
     end
 end, false)
 
-_, setUIAimbot = CreateToggleSwitch(sf, "Aimbot", 595, function(state)
+_, setUIAimbot = CreateToggleSwitch(sf, "Aimbot", 643, function(state)
     aimbotActive = state
 end, false)
 
-_, setUIEsp = CreateToggleSwitch(sf, "ESP", 643, function(state)
+_, setUIEsp = CreateToggleSwitch(sf, "ESP", 691, function(state)
     espActive = state
 end, false)
 
-_, setUIView = CreateToggleSwitch(sf, "View / Unview", 691, function(state)
+_, setUIView = CreateToggleSwitch(sf, "View / Unview", 739, function(state)
     viewActive = state
     if not state then
         workspace.CurrentCamera.CameraSubject = LP.Character:FindFirstChildOfClass("Humanoid")
     end
 end, false)
 
-
--- 2. Shield 🛡️ (1) Section
+-- 2. Shield Section
 local shield1FF = CreateSection("Shield1", 350)
 local s1Header = Instance.new("TextLabel", shield1FF)
 s1Header.Size = UDim2.new(1, -20, 0, 36)
 s1Header.Position = UDim2.new(0, 10, 0, 10)
-s1Header.BackgroundColor3 = Color3.fromRGB(0, 100, 50)
+s1Header.BackgroundColor3 = Color3.fromRGB(0, 80, 150)
 s1Header.TextColor3 = Color3.new(1, 1, 1)
 s1Header.Font = Enum.Font.SourceSansBold 
 s1Header.TextSize = 17
@@ -850,13 +865,12 @@ CreateToggleSwitch(shield1FF, "Anti sit on off (antisitv2)", 288, function(v)
     end)
 end, false)
 
-
--- 3. AntiBang Section (Shield2) - 13 Loadstring slots added
+-- 3. AntiBang Section
 local shield2FF = CreateSection("Shield2", 750)
 local s2Header = Instance.new("TextLabel", shield2FF)
 s2Header.Size = UDim2.new(1, -20, 0, 36)
 s2Header.Position = UDim2.new(0, 10, 0, 10)
-s2Header.BackgroundColor3 = Color3.fromRGB(150, 20, 20)
+s2Header.BackgroundColor3 = Color3.fromRGB(0, 80, 150)
 s2Header.TextColor3 = Color3.new(1, 1, 1)
 s2Header.Font = Enum.Font.SourceSansBold 
 s2Header.TextSize = 17
@@ -946,7 +960,7 @@ local playerFF = CreateSection("Player", 550)
 local playerHeader = Instance.new("TextLabel", playerFF)
 playerHeader.Size = UDim2.new(1, -20, 0, 36)
 playerHeader.Position = UDim2.new(0, 10, 0, 10)
-playerHeader.BackgroundColor3 = Color3.fromRGB(180, 0, 100)
+playerHeader.BackgroundColor3 = Color3.fromRGB(0, 80, 150)
 playerHeader.TextColor3 = Color3.new(1, 1, 1)
 playerHeader.Font = Enum.Font.SourceSansBold 
 playerHeader.TextSize = 17
@@ -1090,7 +1104,7 @@ Instance.new("UICorner", flingContainer).CornerRadius = UDim.new(0, 8)
 local flingToggleBtn = Instance.new("TextButton", flingContainer)
 flingToggleBtn.Size = UDim2.new(0.62, 0, 0, 36)
 flingToggleBtn.Position = UDim2.new(0, 10, 0, 10)
-flingToggleBtn.BackgroundColor3 = Color3.fromRGB(200, 80, 140)
+flingToggleBtn.BackgroundColor3 = Color3.fromRGB(0, 120, 200)
 flingToggleBtn.TextColor3 = Color3.new(1, 1, 1)
 flingToggleBtn.Font = Enum.Font.SourceSansBold
 flingToggleBtn.TextSize = 15
@@ -1114,7 +1128,7 @@ local flingTitleLbl = Instance.new("TextLabel", flingContainer)
 flingTitleLbl.Size = UDim2.new(1, -20, 0, 28)
 flingTitleLbl.Position = UDim2.new(0, 10, 0, 56)
 flingTitleLbl.BackgroundTransparency = 1
-flingTitleLbl.TextColor3 = Color3.fromRGB(255, 150, 200)
+flingTitleLbl.TextColor3 = Color3.fromRGB(0, 180, 255)
 flingTitleLbl.Font = Enum.Font.SourceSansBold
 flingTitleLbl.TextSize = 13
 flingTitleLbl.Text = "Walkfling (Muffins Fling Engine)"
@@ -1125,7 +1139,7 @@ local muffinsActive = false
 flingToggleBtn.MouseButton1Click:Connect(function()
     muffinsActive = not muffinsActive
     flingToggleBtn.Text = muffinsActive and "FLINGING..." or "OFF"
-    if not muffinsActive then flingToggleBtn.BackgroundColor3 = Color3.fromRGB(200, 80, 140) end
+    if not muffinsActive then flingToggleBtn.BackgroundColor3 = Color3.fromRGB(0, 120, 200) end
 end)
 
 R.PostSimulation:Connect(function()
@@ -1152,13 +1166,12 @@ R.PostSimulation:Connect(function()
     end
 end)
 
-
 -- 5. Fling All Tab
 local flingAllFF = CreateSection("FlingAll", 420)
 local faHeader = Instance.new("TextLabel", flingAllFF)
 faHeader.Size = UDim2.new(1, -20, 0, 36)
 faHeader.Position = UDim2.new(0, 10, 0, 10)
-faHeader.BackgroundColor3 = Color3.fromRGB(180, 40, 40)
+faHeader.BackgroundColor3 = Color3.fromRGB(0, 80, 150)
 faHeader.TextColor3 = Color3.new(1, 1, 1)
 faHeader.Font = Enum.Font.SourceSansBold 
 faHeader.TextSize = 17
@@ -1260,7 +1273,7 @@ task.spawn(refreshFlingAllList)
 local startFlingAllBtn = Instance.new("TextButton", flingAllFF)
 startFlingAllBtn.Size = UDim2.new(1, -20, 0, 38)
 startFlingAllBtn.Position = UDim2.new(0, 10, 0, 235)
-startFlingAllBtn.BackgroundColor3 = Color3.fromRGB(40, 160, 40)
+startFlingAllBtn.BackgroundColor3 = Color3.fromRGB(0, 150, 80)
 startFlingAllBtn.TextColor3 = Color3.new(1, 1, 1)
 startFlingAllBtn.Font = Enum.Font.SourceSansBold
 startFlingAllBtn.TextSize = 15
@@ -1317,20 +1330,20 @@ stopFlingAllBtn.MouseButton1Click:Connect(function()
     flingAllActive = false
 end)
 
--- 6. All Spam Section - 10 Loadstring slots added
-local allSpamFF = CreateSection("AllSpam", 550)
+-- 6. All Spam Section (Clean & Merged without All-Execute button)
+local allSpamFF = CreateSection("AllSpam", 1000)
 local asHeader = Instance.new("TextLabel", allSpamFF)
 asHeader.Size = UDim2.new(1, -20, 0, 36)
 asHeader.Position = UDim2.new(0, 10, 0, 10)
-asHeader.BackgroundColor3 = Color3.fromRGB(60, 0, 120)
+asHeader.BackgroundColor3 = Color3.fromRGB(0, 80, 150)
 asHeader.TextColor3 = Color3.new(1, 1, 1)
 asHeader.Font = Enum.Font.SourceSansBold 
 asHeader.TextSize = 17
-asHeader.Text = "📢 All Spam & Loadstrings"
+asHeader.Text = "📢 Spammers & GitHub Custom Slots"
 asHeader.ZIndex = 4
 Instance.new("UICorner", asHeader).CornerRadius = UDim.new(0, 6)
 
-createLoadstringButton(allSpamFF, " AYAN SPAMMER ", 56, "https://raw.githubusercontent.com/ayanjaveed503-a11y/EVERYONE-SCRIPT/refs/heads/main/AYAN%20SPAMMER")
+createLoadstringButton(allSpamFF, "AYAN SPAMMER", 56, "https://raw.githubusercontent.com/ayanjaveed503-a11y/EVERYONE-SCRIPT/refs/heads/main/AYAN%20SPAMMER")
 createLoadstringButton(allSpamFF, "BUNNY SPAMMER", 104, "https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-SPAM/refs/heads/main/TALHA%20SPAMMER.lua")
 createLoadstringButton(allSpamFF, "TALHA SPAMMER", 152, "https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-SPAM/refs/heads/main/TALHA%20SPAMMER.lua")
 createLoadstringButton(allSpamFF, "MEHDI SPAMMER", 200, "https://raw.githubusercontent.com/ayanjaveed503-a11y/EVERYONE-SCRIPT/refs/heads/main/MEHDI%20SPAM.txt")
@@ -1339,15 +1352,34 @@ createLoadstringButton(allSpamFF, "SAMRAT SPAMMER", 296, "https://raw.githubuser
 createLoadstringButton(allSpamFF, "TRIO SPAMMER", 344, "https://raw.githubusercontent.com/ayanjaveed503-a11y/EVERYONE-SCRIPT/refs/heads/main/TRIO%20SPAM%20.txt")
 createLoadstringButton(allSpamFF, "MIKEY SPAMMER", 392, "https://raw.githubusercontent.com/MuddyyXScripts/MIKEY-SPAMMER-V1/refs/heads/main/ObfuscatedByMonKFuscate.luau%20(5).txt")
 createLoadstringButton(allSpamFF, "BUNNY SPAMMERV2", 440, "https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-SPAM/refs/heads/main/BUNNY%20SPAM.txt")
-createLoadstringButton(allSpamFF, "💬 Spam Script 10", 488, "Aapki_Dasv_Script_Ka_Link")
 
+local extraLabel = Instance.new("TextLabel", allSpamFF)
+extraLabel.Size = UDim2.new(1, -20, 0, 28)
+extraLabel.Position = UDim2.new(0, 10, 0, 488)
+extraLabel.BackgroundTransparency = 1
+extraLabel.TextColor3 = Color3.fromRGB(0, 180, 255)
+extraLabel.Font = Enum.Font.SourceSansBold
+extraLabel.TextSize = 14
+extraLabel.Text = "--- 10 GitHub Custom Spam Slots ---"
+extraLabel.TextXAlignment = Enum.TextXAlignment.Left
 
--- 7. Script Section - 10 Loadstring slots added
+createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 1", 524, "GitHub_Link_1_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 2", 572, "GitHub_Link_2_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 3", 620, "GitHub_Link_3_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 4", 668, "GitHub_Link_4_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 5", 716, "GitHub_Link_5_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 6", 764, "GitHub_Link_6_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 7", 812, "GitHub_Link_7_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 8", 860, "GitHub_Link_8_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 9", 908, "GitHub_Link_9_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 10", 956, "GitHub_Link_10_Yahan_Paste_Karein")
+
+-- 7. Script Section
 local mastScriptFF = CreateSection("MastScript", 550)
 local msHeader = Instance.new("TextLabel", mastScriptFF)
 msHeader.Size = UDim2.new(1, -20, 0, 36)
 msHeader.Position = UDim2.new(0, 10, 0, 10)
-msHeader.BackgroundColor3 = Color3.fromRGB(120, 0, 60)
+msHeader.BackgroundColor3 = Color3.fromRGB(0, 80, 150)
 msHeader.TextColor3 = Color3.new(1, 1, 1)
 msHeader.Font = Enum.Font.SourceSansBold 
 msHeader.TextSize = 17
@@ -1366,8 +1398,7 @@ createLoadstringButton(mastScriptFF, "📜 Script Hub soon 8", 392, "Aapki_Aathv
 createLoadstringButton(mastScriptFF, "📜 Script Hub soon 9", 440, "Aapki_Nauv_Script_Ka_Link")
 createLoadstringButton(mastScriptFF, "📜 Script Hub soon 10", 488, "Aapki_Dasv_Script_Ka_Link")
 
-
--- 8. Life Together Section - 10 Loadstring slots added
+-- 8. Life Together Section
 local lifeTogetherFF = CreateSection("LifeTogether", 550)
 
 local lockScreen = Instance.new("Frame", lifeTogetherFF)
@@ -1382,7 +1413,7 @@ local lockTitle = Instance.new("TextLabel", lockScreen)
 lockTitle.Size = UDim2.new(1, -20, 0, 40)
 lockTitle.Position = UDim2.new(0, 10, 0, 25)
 lockTitle.BackgroundTransparency = 1
-lockTitle.TextColor3 = Color3.fromRGB(255, 50, 50)
+lockTitle.TextColor3 = Color3.fromRGB(0, 150, 255)
 lockTitle.Font = Enum.Font.SourceSansBold
 lockTitle.TextSize = 18
 lockTitle.Text = "🔒 Life Together is Locked"
@@ -1424,7 +1455,7 @@ ltContent.ZIndex = 4
 local ltHeader = Instance.new("TextLabel", ltContent)
 ltHeader.Size = UDim2.new(1, -20, 0, 36)
 ltHeader.Position = UDim2.new(0, 10, 0, 10)
-ltHeader.BackgroundColor3 = Color3.fromRGB(0, 60, 120)
+ltHeader.BackgroundColor3 = Color3.fromRGB(0, 80, 150)
 ltHeader.TextColor3 = Color3.new(1, 1, 1)
 ltHeader.Font = Enum.Font.SourceSansBold 
 ltHeader.TextSize = 17
@@ -1455,13 +1486,12 @@ passBox.FocusLost:Connect(function(enterPressed)
     end
 end)
 
-
 -- 9. Player List & Game Time Section
 local ptFF = CreateSection("PlayTime", 600)
 local ptHeader = Instance.new("TextLabel", ptFF)
 ptHeader.Size = UDim2.new(1, -20, 0, 36)
 ptHeader.Position = UDim2.new(0, 10, 0, 10)
-ptHeader.BackgroundColor3 = Color3.fromRGB(0, 0, 60)
+ptHeader.BackgroundColor3 = Color3.fromRGB(0, 60, 120)
 ptHeader.TextColor3 = Color3.new(1, 1, 1)
 ptHeader.Font = Enum.Font.SourceSansBold 
 ptHeader.TextSize = 16
@@ -1567,7 +1597,7 @@ afkMain.ZIndex = 4
 Instance.new("UICorner", afkMain).CornerRadius = UDim.new(0, 12)
 
 local afkStroke = Instance.new("UIStroke", afkMain)
-afkStroke.Color = Color3.fromRGB(100, 15, 15)
+afkStroke.Color = Color3.fromRGB(0, 100, 200)
 afkStroke.Thickness = 1.5
 
 local RainContainer = Instance.new("Frame", afkMain)
@@ -1583,7 +1613,7 @@ local function SpawnRainDrop()
 
     drop.Size = UDim2.new(0, 2, 0, dropLength)
     drop.Position = UDim2.new(0, startX, 0, -dropLength)
-    drop.BackgroundColor3 = Color3.fromRGB(220, 20, 40)
+    drop.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
     drop.BackgroundTransparency = math.random(3, 6) / 10
     drop.BorderSizePixel = 0
     drop.ZIndex = 5
@@ -1624,7 +1654,7 @@ TitleLabel.Size = UDim2.new(1, -40, 1, 0)
 TitleLabel.Position = UDim2.new(0, 40, 0, 0)
 TitleLabel.BackgroundTransparency = 1
 TitleLabel.Text = "AYANUU AFK"
-TitleLabel.TextColor3 = Color3.fromRGB(255, 40, 40)
+TitleLabel.TextColor3 = Color3.fromRGB(0, 150, 255)
 TitleLabel.TextSize = 14
 TitleLabel.Font = Enum.Font.FredokaOne
 TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -1635,7 +1665,7 @@ TimerLabel.Size = UDim2.new(1, 0, 0, 26)
 TimerLabel.Position = UDim2.new(0, 0, 0, 38)
 TimerLabel.BackgroundTransparency = 1
 TimerLabel.Text = "000:00:00"
-TimerLabel.TextColor3 = Color3.fromRGB(255, 60, 60)
+TimerLabel.TextColor3 = Color3.fromRGB(0, 180, 255)
 TimerLabel.TextSize = 20
 TimerLabel.Font = Enum.Font.Code
 TimerLabel.ZIndex = 5
@@ -1645,7 +1675,7 @@ DayLabel.Size = UDim2.new(1, 0, 0, 18)
 DayLabel.Position = UDim2.new(0, 0, 0, 66)
 DayLabel.BackgroundTransparency = 1
 DayLabel.Text = "day : 0"
-DayLabel.TextColor3 = Color3.fromRGB(220, 150, 150)
+DayLabel.TextColor3 = Color3.fromRGB(150, 200, 255)
 DayLabel.TextSize = 13
 DayLabel.Font = Enum.Font.SourceSansBold
 DayLabel.ZIndex = 5
@@ -1705,12 +1735,11 @@ task.spawn(function()
     end
 end)
 
-
 -- 11. Enhanced FPS Section
 local fpsFF = CreateSection("FPS", 220)
 local titleLbl = Instance.new("TextLabel", fpsFF)
 titleLbl.Size = UDim2.new(1, 0, 0, 28)
-titleLbl.BackgroundColor3 = Color3.fromRGB(150, 0, 0)
+titleLbl.BackgroundColor3 = Color3.fromRGB(0, 80, 150)
 titleLbl.TextColor3 = Color3.new(1, 1, 1)
 titleLbl.Font = Enum.Font.SourceSansBold 
 titleLbl.TextSize = 14
@@ -1748,13 +1777,12 @@ task.spawn(function()
     end)
 end)
 
-
 -- 12. Rejoin Section
 local rjFF = CreateSection("Rejoin", 200)
 local rjBtn = Instance.new("TextButton", rjFF)
 rjBtn.Size = UDim2.new(1, -20, 0, 50)
 rjBtn.Position = UDim2.new(0, 10, 0, 30)
-rjBtn.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+rjBtn.BackgroundColor3 = Color3.fromRGB(0, 120, 200)
 rjBtn.TextColor3 = Color3.new(1, 1, 1)
 rjBtn.Font = Enum.Font.FredokaOne
 rjBtn.TextSize = 18
@@ -1766,13 +1794,12 @@ rjBtn.MouseButton1Click:Connect(function()
     game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, LP)
 end)
 
-
 -- 13. Notes Section
 local notesFF = CreateSection("Notes", 520)
 local notesHeader = Instance.new("TextLabel", notesFF)
 notesHeader.Size = UDim2.new(1, -20, 0, 36)
 notesHeader.Position = UDim2.new(0, 10, 0, 10)
-notesHeader.BackgroundColor3 = Color3.fromRGB(180, 0, 0)
+notesHeader.BackgroundColor3 = Color3.fromRGB(0, 80, 150)
 notesHeader.TextColor3 = Color3.new(1, 1, 1)
 notesHeader.Font = Enum.Font.SourceSansBold 
 notesHeader.TextSize = 17
@@ -1780,36 +1807,44 @@ notesHeader.Text = "📜 Panel Complete Features Guide"
 notesHeader.ZIndex = 4
 Instance.new("UICorner", notesHeader).CornerRadius = UDim.new(0, 6)
 
-local notesBody = Instance.new("TextLabel", notesFF)
-notesBody.Size = UDim2.new(1, -20, 0, 440)
-notesBody.Position = UDim2.new(0, 10, 0, 56)
-notesBody.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-notesBody.BackgroundTransparency = 0.35
-notesBody.TextColor3 = Color3.fromRGB(230, 230, 230)
+local notesScroll = Instance.new("ScrollingFrame", notesFF)
+notesScroll.Size = UDim2.new(1, -20, 0, 440)
+notesScroll.Position = UDim2.new(0, 10, 0, 56)
+notesScroll.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+notesScroll.BackgroundTransparency = 0.35
+notesScroll.CanvasSize = UDim2.new(0, 0, 0, 550)
+notesScroll.ScrollBarThickness = 4
+notesScroll.ZIndex = 4
+Instance.new("UICorner", notesScroll).CornerRadius = UDim.new(0, 8)
+
+local notesBody = Instance.new("TextLabel", notesScroll)
+notesBody.Size = UDim2.new(1, -15, 1, 0)
+notesBody.Position = UDim2.new(0, 10, 0, 0)
+notesBody.BackgroundTransparency = 1
+notesBody.TextColor3 = Color3.fromRGB(255, 255, 255)
 notesBody.Font = Enum.Font.SourceSansBold
 notesBody.TextSize = 13
 notesBody.TextXAlignment = Enum.TextXAlignment.Left
 notesBody.TextYAlignment = Enum.TextYAlignment.Top
+notesBody.TextWrapped = true
 notesBody.Text = [[
-• TARGETING: Search player name/display, View online status, Thumbnail preview, Goto Target Teleport, Mouthbang, Back Bang, Front Sit, Front Headsit, Orbit Target, Aimbot, ESP, View/Unview.
+• TARGETING: Search player name/display, View online status, Thumbnail preview, Goto Target Player, Mouthbang, Back Bang, Front Sit, Front Headsit, Black Backsit, Orbit Target, Aimbot, ESP, View/Unview.
 • SHIELD: Smart Anti-Sit, Anti-Void, Anti-Fling, Anti-Teleport Kill, Anti-Glitch, Anti-Sit V2.
-• ANTIBANG: Custom Speed AntiBang protection & 10 loadstring slots.
+• ANTIBANG: Custom Speed AntiBang protection & 13 loadstring slots.
 • PLAYER: Mobile Fly (ON/OFF), WalkSpeed, JumpPower, Infinite Jump, Noclip, ESP, Walkfling (Muffins Fling Engine).
 • FLING ALL: Live Search Box + Interactive Player List Checkboxes + Start/Stop Fling Selected/All.
-• ALL SPAM & SCRIPT: Multiple spammer tools and 10 loadstring slots each.
-• LIFE TOGETHER: PIN-locked exclusive map scripts with 10 loadstring slots.
+• ALL SPAM & 10 INDIVIDUAL SLOTS: Individual spam buttons + 10 separate GitHub loadstring slots.
+• LIFE TOGETHER: PIN-locked exclusive map scripts with loadstring slots.
 • PLAYER LIST & TIME: Live server player search + individual session/game time tracker.
 • ANTI-AFK: Ayanuu AFK engine with custom rain UI, timer, and Kicks Prevented counter.
 • ENHANCED FPS: Live FPS counter and Ultra Antilag, Antilag, Fps Booster.
 • REJOIN: Instant server rejoin button.
-• THEME: GUI Size control, 10 Background Image slots, 10 Floating Icon Image slots, Transparency slider, Rainbow GUI/Icon modes, and Destroy GUI button.
+• THEME & FEEDBACK: GUI outline & background color sliders, Rainbow GUI & Background toggles, Icon Image Slots, and MockAPI Feedback submission.
 ]]
-notesBody.ZIndex = 4
-Instance.new("UICorner", notesBody).CornerRadius = UDim.new(0, 8)
+notesBody.ZIndex = 5
 
-
--- 14. Theme Tab - 10 Background Image Slots & 10 Floating Icon Image Slots
-local themeFF = CreateSection("Theme", 1100)
+-- 14. Theme Tab (With GUI Outline, GUI Background Slider, Rainbow GUI & Background options)
+local themeFF = CreateSection("Theme", 1550)
 local themeHeader = Instance.new("TextLabel", themeFF)
 themeHeader.Size = UDim2.new(1, -20, 0, 36)
 themeHeader.Position = UDim2.new(0, 10, 0, 10)
@@ -1817,171 +1852,142 @@ themeHeader.BackgroundColor3 = Color3.fromRGB(100, 0, 150)
 themeHeader.TextColor3 = Color3.new(1, 1, 1)
 themeHeader.Font = Enum.Font.SourceSansBold 
 themeHeader.TextSize = 17
-themeHeader.Text = "🎨 Theme & Customization (10 Slots)"
+themeHeader.Text = "🎨 Theme & Customization"
 themeHeader.ZIndex = 4
 Instance.new("UICorner", themeHeader).CornerRadius = UDim.new(0, 6)
 
+-- 1. GUI Outline Color Slider
+local guiColorTitle = Instance.new("TextLabel", themeFF)
+guiColorTitle.Size = UDim2.new(1, -20, 0, 24)
+guiColorTitle.Position = UDim2.new(0, 10, 0, 56)
+guiColorTitle.BackgroundTransparency = 1
+guiColorTitle.TextColor3 = Color3.fromRGB(220, 220, 220)
+guiColorTitle.Font = Enum.Font.SourceSansBold
+guiColorTitle.TextSize = 14
+guiColorTitle.Text = "GUI Outline Color Slider (Black to RGB):"
+guiColorTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+local guiColorBar = Instance.new("TextButton", themeFF)
+guiColorBar.Size = UDim2.new(1, -20, 0, 28)
+guiColorBar.Position = UDim2.new(0, 10, 0, 82)
+guiColorBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+guiColorBar.AutoButtonColor = false
+guiColorBar.Text = ""
+guiColorBar.ZIndex = 5
+Instance.new("UICorner", guiColorBar).CornerRadius = UDim.new(0, 6)
+
+local guiBarGradient = Instance.new("UIGradient", guiColorBar)
+guiBarGradient.Color = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
+    ColorSequenceKeypoint.new(0.2, Color3.fromRGB(255, 0, 0)),
+    ColorSequenceKeypoint.new(0.4, Color3.fromRGB(255, 255, 0)),
+    ColorSequenceKeypoint.new(0.6, Color3.fromRGB(0, 255, 0)),
+    ColorSequenceKeypoint.new(0.8, Color3.fromRGB(0, 255, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 255))
+})
+
+local guiThumb = Instance.new("Frame", guiColorBar)
+guiThumb.Size = UDim2.new(0, 14, 1, 4)
+guiThumb.Position = UDim2.new(0, 0, 0, -2)
+guiThumb.BackgroundColor3 = Color3.new(1, 1, 1)
+guiThumb.ZIndex = 6
+Instance.new("UICorner", guiThumb).CornerRadius = UDim.new(0, 4)
+
+local draggingGuiCol = false
+guiColorBar.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        draggingGuiCol = true
+    end
+end)
+
+game:GetService("UserInputService").InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        draggingGuiCol = false
+        draggingBgCol = false
+    end
+end)
+
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+    if draggingGuiCol and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+        local mousePos = input.Position.X
+        local barPos = guiColorBar.AbsolutePosition.X
+        local barSize = guiColorBar.AbsoluteSize.X
+        local relX = math.clamp((mousePos - barPos) / barSize, 0, 1)
+        
+        guiThumb.Position = UDim2.new(relX, -7, 0, -2)
+        useGuiSliderColor = true
+        rainbowGuiActive = false
+        if relX == 0 then
+            customGuiColor = Color3.fromRGB(0, 0, 0)
+        else
+            customGuiColor = Color3.fromHSV(relX, 1, 1)
+        end
+    end
+end)
+
+-- 2. GUI Background Color Slider
+local bgColorTitle = Instance.new("TextLabel", themeFF)
+bgColorTitle.Size = UDim2.new(1, -20, 0, 24)
+bgColorTitle.Position = UDim2.new(0, 10, 0, 126)
+bgColorTitle.BackgroundTransparency = 1
+bgColorTitle.TextColor3 = Color3.fromRGB(220, 220, 220)
+bgColorTitle.Font = Enum.Font.SourceSansBold
+bgColorTitle.TextSize = 14
+bgColorTitle.Text = "GUI Background Color Slider (Black to RGB):"
+bgColorTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+local bgColorBar = Instance.new("TextButton", themeFF)
+bgColorBar.Size = UDim2.new(1, -20, 0, 28)
+bgColorBar.Position = UDim2.new(0, 10, 0, 152)
+bgColorBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+bgColorBar.AutoButtonColor = false
+bgColorBar.Text = ""
+bgColorBar.ZIndex = 5
+Instance.new("UICorner", bgColorBar).CornerRadius = UDim.new(0, 6)
+
+local bgBarGradient = Instance.new("UIGradient", bgColorBar)
+bgBarGradient.Color = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
+    ColorSequenceKeypoint.new(0.2, Color3.fromRGB(255, 0, 0)),
+    ColorSequenceKeypoint.new(0.4, Color3.fromRGB(255, 255, 0)),
+    ColorSequenceKeypoint.new(0.6, Color3.fromRGB(0, 255, 0)),
+    ColorSequenceKeypoint.new(0.8, Color3.fromRGB(0, 255, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 255))
+})
+
+local bgThumb = Instance.new("Frame", bgColorBar)
+bgThumb.Size = UDim2.new(0, 14, 1, 4)
+bgThumb.Position = UDim2.new(0, 0, 0, -2)
+bgThumb.BackgroundColor3 = Color3.new(1, 1, 1)
+bgThumb.ZIndex = 6
+Instance.new("UICorner", bgThumb).CornerRadius = UDim.new(0, 4)
+
+local draggingBgCol = false
+bgColorBar.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        draggingBgCol = true
+    end
+end)
+
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+    if draggingBgCol and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+        local mousePos = input.Position.X
+        local barPos = bgColorBar.AbsolutePosition.X
+        local barSize = bgColorBar.AbsoluteSize.X
+        local relX = math.clamp((mousePos - barPos) / barSize, 0, 1)
+        
+        bgThumb.Position = UDim2.new(relX, -7, 0, -2)
+        useBgSliderColor = true
+        rainbowBgActive = false
+        if relX == 0 then
+            customBgColor = Color3.fromRGB(0, 0, 0)
+        else
+            customBgColor = Color3.fromHSV(relX, 1, 1)
+        end
+    end
+end)
+
 local sizeTitle = Instance.new("TextLabel", themeFF)
 sizeTitle.Size = UDim2.new(1, -20, 0, 24)
-sizeTitle.Position = UDim2.new(0, 10, 0, 56)
-sizeTitle.BackgroundTransparency = 1
-sizeTitle.TextColor3 = Color3.fromRGB(220, 220, 220)
-sizeTitle.Font = Enum.Font.SourceSansBold
-sizeTitle.TextSize = 14
-sizeTitle.Text = "GUI Size (Width, Height):"
-sizeTitle.TextXAlignment = Enum.TextXAlignment.Left
-
-local sizeBox = Instance.new("TextBox", themeFF)
-sizeBox.Size = UDim2.new(1, -20, 0, 35)
-sizeBox.Position = UDim2.new(0, 10, 0, 82)
-sizeBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-sizeBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-sizeBox.Font = Enum.Font.SourceSansBold
-sizeBox.TextSize = 14
-sizeBox.Text = "600, 420"
-sizeBox.ZIndex = 5
-Instance.new("UICorner", sizeBox).CornerRadius = UDim.new(0, 6)
-
-sizeBox.FocusLost:Connect(function(enter)
-    if enter then
-        local w, h = string.match(sizeBox.Text, "(%d+)%s*,%s*(%d+)")
-        if w and h then
-            m.Size = UDim2.new(0, tonumber(w), 0, tonumber(h))
-        end
-    end
-end)
-
--- 10 Background Image Slots
-local imgTitle = Instance.new("TextLabel", themeFF)
-imgTitle.Size = UDim2.new(1, -20, 0, 24)
-imgTitle.Position = UDim2.new(0, 10, 0, 126)
-imgTitle.BackgroundTransparency = 1
-imgTitle.TextColor3 = Color3.fromRGB(220, 220, 220)
-imgTitle.Font = Enum.Font.SourceSansBold
-imgTitle.TextSize = 14
-imgTitle.Text = "Background Image Slots (1 - 10):"
-imgTitle.TextXAlignment = Enum.TextXAlignment.Left
-
-local customAssetIds = {
-    "rbxassetid://81902757422115",
-    "rbxassetid://1851912648",
-    "rbxassetid://6023426915",
-    "rbxassetid://6034293931",
-    "rbxassetid://6034294025",
-    "rbxassetid://6031094678",
-    "rbxassetid://6031097225",
-    "rbxassetid://6031097277",
-    "rbxassetid://6034293855",
-    "rbxassetid://6034293950"
-}
-
-for i = 1, 10 do
-    local imgBtn = Instance.new("TextButton", themeFF)
-    imgBtn.Size = UDim2.new(1, -20, 0, 28)
-    imgBtn.Position = UDim2.new(0, 10, 0, 154 + ((i - 1) * 33))
-    imgBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-    imgBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    imgBtn.Font = Enum.Font.SourceSansBold
-    imgBtn.TextSize = 13
-    imgBtn.Text = "Load Background Image Slot " .. i
-    imgBtn.ZIndex = 5
-    Instance.new("UICorner", imgBtn).CornerRadius = UDim.new(0, 6)
-    
-    imgBtn.MouseButton1Click:Connect(function()
-        mainBgImage.Image = customAssetIds[i]
-    end)
-end
-
--- 10 Icon Image Slots
-local iconImgTitle = Instance.new("TextLabel", themeFF)
-iconImgTitle.Size = UDim2.new(1, -20, 0, 24)
-iconImgTitle.Position = UDim2.new(0, 10, 0, 488)
-iconImgTitle.BackgroundTransparency = 1
-iconImgTitle.TextColor3 = Color3.fromRGB(220, 220, 220)
-iconImgTitle.Font = Enum.Font.SourceSansBold
-iconImgTitle.TextSize = 14
-iconImgTitle.Text = "Floating Icon Image Slots (1 - 10):"
-iconImgTitle.TextXAlignment = Enum.TextXAlignment.Left
-
-local iconAssetIds = {
-    "rbxassetid://116161784313166",
-    "rbxassetid://6023426915",
-    "rbxassetid://1851912648",
-    "rbxassetid://6034293931",
-    "rbxassetid://6034294025",
-    "rbxassetid://6031094678",
-    "rbxassetid://6031097225",
-    "rbxassetid://6031097277",
-    "rbxassetid://6034293855",
-    "rbxassetid://6034293950"
-}
-
-for i = 1, 10 do
-    local iconImgBtn = Instance.new("TextButton", themeFF)
-    iconImgBtn.Size = UDim2.new(1, -20, 0, 28)
-    iconImgBtn.Position = UDim2.new(0, 10, 0, 516 + ((i - 1) * 33))
-    iconImgBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-    iconImgBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    iconImgBtn.Font = Enum.Font.SourceSansBold
-    iconImgBtn.TextSize = 13
-    iconImgBtn.Text = "Load Icon Image Slot " .. i
-    iconImgBtn.ZIndex = 5
-    Instance.new("UICorner", iconImgBtn).CornerRadius = UDim.new(0, 6)
-    
-    iconImgBtn.MouseButton1Click:Connect(function()
-        tgImage.Image = iconAssetIds[i]
-    end)
-end
-
-local transTitle = Instance.new("TextLabel", themeFF)
-transTitle.Size = UDim2.new(1, -20, 0, 24)
-transTitle.Position = UDim2.new(0, 10, 0, 850)
-transTitle.BackgroundTransparency = 1
-transTitle.TextColor3 = Color3.fromRGB(220, 220, 220)
-transTitle.Font = Enum.Font.SourceSansBold
-transTitle.TextSize = 14
-transTitle.Text = "Background Transparency (1 - 100):"
-transTitle.TextXAlignment = Enum.TextXAlignment.Left
-
-local transBox = Instance.new("TextBox", themeFF)
-transBox.Size = UDim2.new(1, -20, 0, 35)
-transBox.Position = UDim2.new(0, 10, 0, 876)
-transBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-transBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-transBox.Font = Enum.Font.SourceSansBold
-transBox.TextSize = 14
-transBox.Text = "15"
-transBox.ZIndex = 5
-Instance.new("UICorner", transBox).CornerRadius = UDim.new(0, 6)
-
-transBox.FocusLost:Connect(function(enter)
-    if enter then
-        local val = tonumber(transBox.Text)
-        if val and val >= 1 and val <= 100 then
-            mainBgImage.BackgroundTransparency = val / 100
-        end
-    end
-end)
-
-CreateToggleSwitch(themeFF, "Rainbow GUI Mode", 920, function(state)
-    rainbowGuiActive = state
-end, false)
-
-CreateToggleSwitch(themeFF, "Rainbow Icon Mode", 968, function(state)
-    rainbowIconActive = state
-end, false)
-
-local destroyGuiBtn = Instance.new("TextButton", themeFF)
-destroyGuiBtn.Size = UDim2.new(1, -20, 0, 38)
-destroyGuiBtn.Position = UDim2.new(0, 10, 0, 1020)
-destroyGuiBtn.BackgroundColor3 = Color3.fromRGB(200, 30, 30)
-destroyGuiBtn.TextColor3 = Color3.new(1, 1, 1)
-destroyGuiBtn.Font = Enum.Font.SourceSansBold
-destroyGuiBtn.TextSize = 15
-destroyGuiBtn.Text = "🗑️ Destroy GUI (Remove)"
-destroyGuiBtn.ZIndex = 5
-Instance.new("UICorner", destroyGuiBtn).CornerRadius = UDim.new(0, 8)
-
-destroyGuiBtn.MouseButton1Click:Connect(function()
-    g:Destroy()
-end)
+sizeTitle.Position = UDim2.new(0, 10, 0, 192)
+sizeTitle.BackgroundTransparency
