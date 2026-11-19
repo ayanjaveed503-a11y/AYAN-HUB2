@@ -84,7 +84,7 @@ t.BackgroundTransparency = 0.25
 t.TextColor3 = Color3.new(1, 1, 1)
 t.Font = Enum.Font.GothamBold 
 t.TextSize = 16
-t.Text = "⚡ Life Together | HUB MADE BY AYANUU // iOS ⚡"
+t.Text = "⚡ Life Together HUB | MADE BY AYANUU ⚡ "
 t.Active = true
 Instance.new("UICorner", t).CornerRadius = UDim.new(0, 16)
 
@@ -1442,19 +1442,19 @@ extraLabel.BackgroundTransparency = 1
 extraLabel.TextColor3 = Color3.fromRGB(180, 200, 255)
 extraLabel.Font = Enum.Font.GothamBold
 extraLabel.TextSize = 13
-extraLabel.Text = "--- 10 GitHub Custom Spam Slots ---"
+extraLabel.Text = "--- New spam Slots ---"
 extraLabel.TextXAlignment = Enum.TextXAlignment.Left
 
-createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 1", 524, "GitHub_Link_1_Yahan_Paste_Karein")
-createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 2", 572, "GitHub_Link_2_Yahan_Paste_Karein")
-createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 3", 620, "GitHub_Link_3_Yahan_Paste_Karein")
-createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 4", 668, "GitHub_Link_4_Yahan_Paste_Karein")
-createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 5", 716, "GitHub_Link_5_Yahan_Paste_Karein")
-createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 6", 764, "GitHub_Link_6_Yahan_Paste_Karein")
-createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 7", 812, "GitHub_Link_7_Yahan_Paste_Karein")
-createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 8", 860, "GitHub_Link_8_Yahan_Paste_Karein")
-createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 9", 908, "GitHub_Link_9_Yahan_Paste_Karein")
-createLoadstringButton(allSpamFF, "📢 GitHub Spam Slot 10", 956, "GitHub_Link_10_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, " Spam Slot 1", 524, "GitHub_Link_1_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, " spam Slot 2", 572, "GitHub_Link_2_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, " Spam Slot 3", 620, "GitHub_Link_3_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, " Spam Slot 4", 668, "GitHub_Link_4_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, " Spam Slot 5", 716, "GitHub_Link_5_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, " Spam Slot 6", 764, "GitHub_Link_6_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, " Spam Slot 7", 812, "GitHub_Link_7_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, " Spam Slot 8", 860, "GitHub_Link_8_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, " Spam Slot 9", 908, "GitHub_Link_9_Yahan_Paste_Karein")
+createLoadstringButton(allSpamFF, " Spam Slot 10", 956, "GitHub_Link_10_Yahan_Paste_Karein")
 
 -- 7. Script Section
 local mastScriptFF = CreateSection("MastScript", 550)
@@ -1474,7 +1474,7 @@ createLoadstringButton(mastScriptFF, "GAZE EMOTE", 56, "https://raw.githubuserco
 createLoadstringButton(mastScriptFF, "ZAYN CHAT-MOBILE", 104, "https://raw.githubusercontent.com/ZaynBoss01/ZAYN/refs/heads/main/Zayn-Roblox")
 createLoadstringButton(mastScriptFF, "GLOBAL CHAT-PC", 152, "https://gist.githubusercontent.com/josh19mark-sys/276fd3c0ad985fe2476f6ce333b4354f/raw/a29997b49f6279e3c0a2564737bb020e7a885cb6/gistfile1.txt")
 createLoadstringButton(mastScriptFF, "MUSIC PLAYER", 200, "https://api.aurorax.site/files/v5/loaders/fdc766682032eea1cd25a1b7a976d621")
-createLoadstringButton(mastScriptFF, "ZM CHAT SOON-PC/MOBILE", 248, "https://raw.githubusercontent.com/MuddyyXScrds/main/ObfuscatedByMonKFuscate.luau%20(5).txt")
+createLoadstringButton(mastScriptFF, "ZM CHAT SOON-PC/MOBILE", 248, "https://raw.ubusercontent.com/MuddyyXScrds/main/ObfuscatedByMonKFuscate.luau%20(5).txt")
 createLoadstringButton(mastScriptFF, "INFINITE YIELD", 296, "Aapki_Chhathi_Script_Ka_Link")
 createLoadstringButton(mastScriptFF, "📜 Script Hub soon 7", 344, "Aapki_Saatv_Script_Ka_Link")
 createLoadstringButton(mastScriptFF, "📜 Script Hub soon 8", 392, "Aapki_Aathv_Script_Ka_Link")
@@ -1550,11 +1550,11 @@ ltHeader.Text = "🏡 Life Together & Loadstrings"
 ltHeader.ZIndex = 5
 Instance.new("UICorner", ltHeader).CornerRadius = UDim.new(0, 12)
 
-createLoadstringButton(ltContent, "🏠 Life Together Script 1", 56, "Aapki_Pehli_Script_Ka_Link")
-createLoadstringButton(ltContent, "🏠 Life Together Script 2", 104, "Aapki_Doosri_Script_Ka_Link")
-createLoadstringButton(ltContent, "🏠 Life Together Script 3", 152, "Aapki_Teesri_Script_Ka_Link")
-createLoadstringButton(ltContent, "🏠 Life Together Script 4", 200, "Aapki_Chauthi_Script_Ka_Link")
-createLoadstringButton(ltContent, "🏠 Life Together Script 5", 248, "Aapki_Paanchv_Script_Ka_Link")
+createLoadstringButton(ltContent, "OUTFIT STEALER", 56, "Aapki_Pehli_Script_Ka_Link")
+createLoadstringButton(ltContent, "OUTFIT MANAGER", 104, "Aapki_Doosri_Script_Ka_Link")
+createLoadstringButton(ltContent, "RESIZE PLAYER", 152, "Aapki_Teesri_Script_Ka_Link")
+createLoadstringButton(ltContent, "MAP DESTROYER+SKY DESTROYER", 200, "Aapki_Chauthi_Script_Ka_Link")
+createLoadstringButton(ltContent, "COVER MAP CODE", 248, "Aapki_Paanchv_Script_Ka_Link")
 createLoadstringButton(ltContent, "🏠 Life Together Script 6", 296, "Aapki_Chhathi_Script_Ka_Link")
 createLoadstringButton(ltContent, "🏠 Life Together Script 7", 344, "Aapki_Saatv_Script_Ka_Link")
 createLoadstringButton(ltContent, "🏠 Life Together Script 8", 392, "Aapki_Aathv_Script_Ka_Link")
@@ -2260,7 +2260,7 @@ fbStatus.TextSize = 13
 fbStatus.Text = ""
 fbStatus.ZIndex = 5
 
-local MOCKAPI_URL = "https://6aef2e43b9925b27ce16b743.mockapi.io/v1/feedbacks"
+local MOCKAPI_URL = "https://6aef2e43b9925b27ce16b743.mockapi.io/v1/Feedback"
 local feedbackCount = 0
 local cooldownActive = false
 
