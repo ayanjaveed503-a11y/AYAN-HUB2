@@ -1550,11 +1550,11 @@ ltHeader.Text = "🏡 Life Together & Loadstrings"
 ltHeader.ZIndex = 5
 Instance.new("UICorner", ltHeader).CornerRadius = UDim.new(0, 12)
 
-createLoadstringButton(ltContent, "OUTFIT STEALER", 56, "Aapki_Pehli_Script_Ka_Link")
-createLoadstringButton(ltContent, "OUTFIT MANAGER", 104, "Aapki_Doosri_Script_Ka_Link")
-createLoadstringButton(ltContent, "RESIZE PLAYER", 152, "Aapki_Teesri_Script_Ka_Link")
-createLoadstringButton(ltContent, "MAP DESTROYER+SKY DESTROYER", 200, "Aapki_Chauthi_Script_Ka_Link")
-createLoadstringButton(ltContent, "COVER MAP CODE", 248, "Aapki_Paanchv_Script_Ka_Link")
+createLoadstringButton(ltContent, "OUTFIT STEALER", 56, "https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-OUTFIT-STEALER/refs/heads/main/AYAN%20OUTFIT%20STEALER%20TESTING")
+createLoadstringButton(ltContent, "OUTFIT MANAGER", 104, "https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-OUTFIT-STEALER/refs/heads/main/OUTFIT%20MANAGER")
+createLoadstringButton(ltContent, "RESIZE PLAYER", 152, "https://raw.githubusercontent.com/MANASMCPE/AUTH0R/refs/heads/main/size-resizer.lua")
+createLoadstringButton(ltContent, "MAP DESTROYER+SKY DESTROYER", 200, "https://raw.githubusercontent.com/MANASMCPE/AUTH0R/refs/heads/main/mapCover.lua")
+createLoadstringButton(ltContent, "COVER MAP CODE", 248, "https://raw.githubusercontent.com/ayanjaveed503-a11y/MAP-DESTROYER-/refs/heads/main/MAP%20DESTROYER.LUA")
 createLoadstringButton(ltContent, "🏠 Life Together Script 6", 296, "Aapki_Chhathi_Script_Ka_Link")
 createLoadstringButton(ltContent, "🏠 Life Together Script 7", 344, "Aapki_Saatv_Script_Ka_Link")
 createLoadstringButton(ltContent, "🏠 Life Together Script 8", 392, "Aapki_Aathv_Script_Ka_Link")
