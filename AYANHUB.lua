@@ -1463,10 +1463,10 @@ ltHeader.Text = "🏡 Life Together & Loadstrings"
 ltHeader.ZIndex = 5
 Instance.new("UICorner", ltHeader).CornerRadius = UDim.new(0, 6)
 
-createLoadstringButton(ltContent, "🏠 Life Together Script 1", 56, "Aapki_Pehli_Script_Ka_Link")
-createLoadstringButton(ltContent, "🏠 Life Together Script 2", 104, "Aapki_Doosri_Script_Ka_Link")
-createLoadstringButton(ltContent, "🏠 Life Together Script 3", 152, "Aapki_Teesri_Script_Ka_Link")
-createLoadstringButton(ltContent, "🏠 Life Together Script 4", 200, "Aapki_Chauthi_Script_Ka_Link")
+createLoadstringButton(ltContent, "LIFE TOGETHER PLAYER RESIZE", 56, "https://raw.githubusercontent.com/MANASMCPE/AUTH0R/refs/heads/main/size-resizer.lua")
+createLoadstringButton(ltContent, "MAP DESTROYER,SKY DESTROYER", 104, "https://raw.githubusercontent.com/MANASMCPE/AUTH0R/refs/heads/main/mapCover.lua")
+createLoadstringButton(ltContent, "COVER MAP CODE", 152, "Aapki_Teesri_Script_Ka_Link")
+createLoadstringButton(ltContent, "OUTFIT STEALER", 200, "Aapki_Chauthi_Script_Ka_Link")
 createLoadstringButton(ltContent, "🏠 Life Together Script 5", 248, "Aapki_Paanchv_Script_Ka_Link")
 createLoadstringButton(ltContent, "🏠 Life Together Script 6", 296, "Aapki_Chhathi_Script_Ka_Link")
 createLoadstringButton(ltContent, "🏠 Life Together Script 7", 344, "Aapki_Saatv_Script_Ka_Link")
