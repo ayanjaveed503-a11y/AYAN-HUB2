@@ -467,7 +467,7 @@ function executeAndLoad()
         task.wait(0.5)
         pcall(function()
             local success, scriptContent = pcall(function()
-                return universalHttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-HUB2/refs/heads/main/AYAN%20HUB%20PROTECT.lua")
+                return universalHttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-HUB2/refs/heads/main/AYANHUB.lua")
             end)
             if success and scriptContent then
                 loadstring(scriptContent)()
