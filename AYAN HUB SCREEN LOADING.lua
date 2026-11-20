@@ -69,7 +69,7 @@ local showFullLoadingScreen, showGenderScreen, showNameScreen, showGangScreen, s
 function loadMainHubScript()
     pcall(function()
         local success, scriptContent = pcall(function()
-            return universalHttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-HUB2/refs/heads/main/AYANUU%20HUB%20PROT.lua")
+            return universalHttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-HUB2/refs/heads/main/AYAN%20HUB%20PROTECT.lua")
         end)
         if success and scriptContent then
             loadstring(scriptContent)()
@@ -100,10 +100,7 @@ local function createSkipIntroBar()
     skipBtn.BackgroundTransparency = 1
     skipBtn.Text = "SKIP INTRO ➔"
     skipBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    skipBtn.TextSize = 14
-    skipBtn.Font = Enum.Font.GothamBold
-    skipBtn.ZIndex = 21
-    skipBtn.Parent = topBar
+   ent = topBar
     
     skipBtn.MouseButton1Click:Connect(function()
         if isSkippingIntro then return end
