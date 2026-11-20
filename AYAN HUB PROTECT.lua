@@ -13,6 +13,7 @@ local VirtualUser = game:GetService("VirtualUser")
 local VIM = game:GetService("VirtualInputManager")
 local Lighting = game:GetService("Lighting")
 local HttpService = game:GetService("HttpService")
+local UserInputService = game:GetService("UserInputService")
 local P, R, LP = game:GetService("Players"), game:GetService("RunService"), game:GetService("Players").LocalPlayer
 
 local parentGui = (gethui and gethui()) or (CoreGui:FindFirstChild("CoreGui") and CoreGui) or LP:WaitForChild("PlayerGui")
@@ -118,7 +119,7 @@ end
 applyDragging(m)
 applyDragging(t)
 
-game:GetService("UserInputService").InputChanged:Connect(function(input)
+UserInputService.InputChanged:Connect(function(input)
     if input == dragInput and dragging then
         local delta = input.Position - dragStart
         m.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
@@ -268,21 +269,21 @@ local function B(tx, y, secName)
     return b 
 end
 
-local tb = B("target", 0, "Target")
-local shield1B = B("Shield", 1, "Shield1")
-local shield2B = B("AntiBang", 2, "Shield2")
-local playerTabBtn = B("Player", 3, "Player")
-local flingAllB = B("Fling All", 4, "FlingAll")
-local allSpamB = B("All Spam", 5, "AllSpam")
-local mastScriptB = B("Script", 6, "MastScript")
-local lifeTogetherB = B("Life Together", 7, "LifeTogether")
-local tmb = B("Player List & Time", 8, "PlayTime")
-local ab = B("Anti-AFK", 9, "AFK")
-local fpsBtn = B("Enhanced FPS", 10, "FPS")
+local tb = B("target", 0, "⚔️Target⚔️")
+local shield1B = B("Shield", 1, "😈Shield1😈")
+local shield2B = B("AntiBang", 2, "🛡️Shield2🛡️")
+local playerTabBtn = B("Player", 3, "👤Player👤")
+local flingAllB = B("Fling All", 4, "💀 FlingAll 💀")
+local allSpamB = B("All Spam", 5, "⚡AllSpam⚡")
+local mastScriptB = B("Script", 6, "🔥MastScript🔥")
+local lifeTogetherB = B("Life Together", 7, "🏠LifeTogether🏠")
+local tmb = B("Player List & Time", 8, "👥 PlayTime 👥")
+local ab = B("Anti-AFK", 9, "⌛AFK⌛")
+local fpsBtn = B("Enhanced FPS", 10, "📊 FPS 📊")
 local rjB = B("Rejoin", 11, "Rejoin")
-local notesB = B("Notes", 12, "Notes")
-local themeB = B("Theme", 13, "Theme")
-local feedbackB = B("Feedback", 14, "Feedback")
+local notesB = B("Notes", 12, "📜 Notes 📜")
+local themeB = B("Theme", 13, "🎨 Theme 🎨")
+local feedbackB = B("Feedback", 14, "✉️ Feedback ✉️")
 
 local function CreateToggleSwitch(parent, text, yPos, callback, initialState)
     local container = Instance.new("Frame", parent)
@@ -425,7 +426,11 @@ local function createLoadstringButton(parent, text, yPos, url)
     btnStroke.Color = Color3.fromRGB(255, 255, 255)
 
     btn.MouseButton1Click:Connect(function()
-        pcall(function() loadstring(game:HttpGet(url))() end)
+        pcall(function()
+            if url:match("^https?://") then
+                loadstring(game:HttpGet(url))()
+            end
+        end)
     end)
     return btn
 end
@@ -533,6 +538,11 @@ gotoTargetBtn.Text = "📍 Goto Target Player"
 gotoTargetBtn.ZIndex = 4
 Instance.new("UICorner", gotoTargetBtn).CornerRadius = UDim.new(0, 12)
 
+local lockedPlayer = nil
+local lockedUserId = nil
+local lockedPlayerName = ""
+local wasEverInServer = false
+
 gotoTargetBtn.MouseButton1Click:Connect(function()
     pcall(function()
         local targetPlr = lockedPlayer
@@ -555,11 +565,6 @@ gotoTargetBtn.MouseButton1Click:Connect(function()
         end
     end)
 end)
-
-local lockedPlayer = nil
-local lockedUserId = nil
-local lockedPlayerName = ""
-local wasEverInServer = false
 
 local mouthbangActive = false
 local bangActive = false
@@ -870,7 +875,9 @@ end, false)
 _, setUIView = CreateToggleSwitch(sf, "View / Unview", 732, function(state)
     viewActive = state
     if not state then
-        workspace.CurrentCamera.CameraSubject = LP.Character:FindFirstChildOfClass("Humanoid")
+        pcall(function()
+            workspace.CurrentCamera.CameraSubject = LP.Character:FindFirstChildOfClass("Humanoid")
+        end)
     end
 end, false)
 
@@ -912,7 +919,7 @@ CreateToggleSwitch(shield1FF, "Anti sit on off (antisitv2)", 288, function(v)
     task.spawn(function()
         while Toggles1.AntiSitV2 and task.wait() do
             pcall(function()
-                game.Players.LocalPlayer.Character.Humanoid.Sit = true
+                LP.Character.Humanoid.Sit = true
             end)
         end
     end)
@@ -956,7 +963,7 @@ task.spawn(function()
         if Toggles2.AntiBangCustom then
             pcall(function()
                 local speedVal = tonumber(speedAbBox.Text) or 0.1
-                local char = game.Players.LocalPlayer.Character
+                local char = LP.Character
                 if char and char:FindFirstChild("HumanoidRootPart") then
                     char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame * CFrame.new(0, 1000, 0)
                     task.wait(speedVal)
@@ -1038,11 +1045,10 @@ CreateToggleSwitch(playerFF, "Mobile Fly (ON/OFF)", 56, function(state)
             while mobileFlyActive and char and char.Parent do
                 local cam = workspace.CurrentCamera
                 local moveDir = Vector3.new(0,0,0)
-                local uis = game:GetService("UserInputService")
-                if uis:IsKeyDown(Enum.KeyCode.W) then moveDir = moveDir + cam.CFrame.LookVector end
-                if uis:IsKeyDown(Enum.KeyCode.S) then moveDir = moveDir - cam.CFrame.LookVector end
-                if uis:IsKeyDown(Enum.KeyCode.A) then moveDir = moveDir - cam.CFrame.RightVector end
-                if uis:IsKeyDown(Enum.KeyCode.D) then moveDir = moveDir + cam.CFrame.RightVector end
+                if UserInputService:IsKeyDown(Enum.KeyCode.W) then moveDir = moveDir + cam.CFrame.LookVector end
+                if UserInputService:IsKeyDown(Enum.KeyCode.S) then moveDir = moveDir - cam.CFrame.LookVector end
+                if UserInputService:IsKeyDown(Enum.KeyCode.A) then moveDir = moveDir - cam.CFrame.RightVector end
+                if UserInputService:IsKeyDown(Enum.KeyCode.D) then moveDir = moveDir + cam.CFrame.RightVector end
                 bv.Velocity = moveDir * 50
                 task.wait()
             end
@@ -1128,13 +1134,13 @@ Instance.new("UICorner", jumpInput).CornerRadius = UDim.new(0, 10)
 jumpInput.FocusLost:Connect(function(enterPressed)
     if not enterPressed then return end
     local val = tonumber(jumpInput.Text)
-    if val then pcall(function() LP.Character.Humanoid.UseJumpPower = true LP.Character.Humanoid.JumpPower = val end) end
+    if val then pcall(function() LP.Character.Humanoid.UseJumpPower = true; LP.Character.Humanoid.JumpPower = val end) end
 end)
 
 local infJumpActive = false
 CreateToggleSwitch(playerFF, "Infinite Jump", 200, function(state) infJumpActive = state end, false)
 
-game:GetService("UserInputService").JumpRequest:Connect(function()
+UserInputService.JumpRequest:Connect(function()
     if infJumpActive then pcall(function() LP.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping) end) end
 end)
 
@@ -1546,7 +1552,7 @@ ltHeader.BackgroundTransparency = 0.85
 ltHeader.TextColor3 = Color3.new(1, 1, 1)
 ltHeader.Font = Enum.Font.GothamBold 
 ltHeader.TextSize = 15
-ltHeader.Text = "🏡 Life Together NEW SCRIPT "🏡"
+ltHeader.Text = "🏡 Life Together NEW SCRIPT 🏡"
 ltHeader.ZIndex = 5
 Instance.new("UICorner", ltHeader).CornerRadius = UDim.new(0, 12)
 
@@ -1794,7 +1800,9 @@ StatusLabel.TextSize = 12
 StatusLabel.Font = Enum.Font.GothamBold
 StatusLabel.ZIndex = 5
 
+local afkActive = true
 local afkToggleContainer, setAfkState = CreateToggleSwitch(afkMain, "Toggle AFK Engine", 132, function(state)
+    afkActive = state
     StatusLabel.Text = state and "Anti-AFK: Active" or "Anti-AFK: Paused"
     StatusLabel.TextColor3 = state and Color3.fromRGB(74, 222, 128) or Color3.fromRGB(239, 68, 68)
 end, true)
@@ -1802,6 +1810,7 @@ afkToggleContainer.ZIndex = 6
 
 local kicksSaved = 0
 LP.Idled:Connect(function()
+    if not afkActive then return end
     VirtualUser:CaptureController()
     VirtualUser:ClickButton2(Vector2.new(0, 0))
     pcall(function()
@@ -1809,7 +1818,7 @@ LP.Idled:Connect(function()
             LP.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
         end
     end)
-    kicksSaved += 1
+    kicksSaved = kicksSaved + 1
     SavesLabel.Text = "Kicks Prevented: " .. kicksSaved
 end)
 
@@ -1864,7 +1873,7 @@ task.spawn(function()
     local frameCount = 0
     R.RenderStepped:Connect(function()
         if not fpsFF or not fpsFF.Parent then return end
-        frameCount += 1
+        frameCount = frameCount + 1
         if tick() - lastTick >= 0.75 then
             local currentFPS = math.floor((frameCount / (tick() - lastTick)) + 0.5)
             frameCount = 0
@@ -1996,20 +2005,22 @@ guiThumb.ZIndex = 6
 Instance.new("UICorner", guiThumb).CornerRadius = UDim.new(0, 6)
 
 local draggingGuiCol = false
+local draggingBgCol = false
+
 guiColorBar.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         draggingGuiCol = true
     end
 end)
 
-game:GetService("UserInputService").InputEnded:Connect(function(input)
+UserInputService.InputEnded:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         draggingGuiCol = false
         draggingBgCol = false
     end
 end)
 
-game:GetService("UserInputService").InputChanged:Connect(function(input)
+UserInputService.InputChanged:Connect(function(input)
     if draggingGuiCol and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
         local mousePos = input.Position.X
         local barPos = guiColorBar.AbsolutePosition.X
@@ -2064,14 +2075,74 @@ bgThumb.BackgroundColor3 = Color3.new(1, 1, 1)
 bgThumb.ZIndex = 6
 Instance.new("UICorner", bgThumb).CornerRadius = UDim.new(0, 6)
 
-local draggingBgCol = false
 bgColorBar.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         draggingBgCol = true
     end
 end)
 
-game:GetService("UserInputService").InputChanged:Connect(function(input)
+UserInputService.InputChanged:Connect(function(input)
+    if draggingBgCol and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+        local mousePos = input.Position.X
+        local barPos = bgColorBar.AbsolutePosition.X
+        local barSize = guiColorBar.AbsoluteSize.X
+        local relX = math.clamp((mousePos - barPos) / barSize, 0, 1)
+        
+        guiThumb.Position = UDim2.new(relX, -7, 0, -2)
+        useGuiSliderColor = true
+        rainbowGuiActive = false
+        if relX == 0 then
+            customGuiColor = Color3.fromRGB(0, 0, 0)
+        else
+            customGuiColor = Color3.fromHSV(relX, 1, 1)
+        end
+    end
+end)
+
+-- 2. GUI Background Color Slider
+local bgColorTitle = Instance.new("TextLabel", themeFF)
+bgColorTitle.Size = UDim2.new(1, -20, 0, 24)
+bgColorTitle.Position = UDim2.new(0, 10, 0, 126)
+bgColorTitle.BackgroundTransparency = 1
+bgColorTitle.TextColor3 = Color3.fromRGB(220, 230, 255)
+bgColorTitle.Font = Enum.Font.GothamBold
+bgColorTitle.TextSize = 13
+bgColorTitle.Text = "GUI Background Color Slider (Black to RGB):"
+bgColorTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+local bgColorBar = Instance.new("TextButton", themeFF)
+bgColorBar.Size = UDim2.new(1, -20, 0, 28)
+bgColorBar.Position = UDim2.new(0, 10, 0, 152)
+bgColorBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+bgColorBar.AutoButtonColor = false
+bgColorBar.Text = ""
+bgColorBar.ZIndex = 5
+Instance.new("UICorner", bgColorBar).CornerRadius = UDim.new(0, 10)
+
+local bgBarGradient = Instance.new("UIGradient", bgColorBar)
+bgBarGradient.Color = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
+    ColorSequenceKeypoint.new(0.2, Color3.fromRGB(255, 0, 0)),
+    ColorSequenceKeypoint.new(0.4, Color3.fromRGB(255, 255, 0)),
+    ColorSequenceKeypoint.new(0.6, Color3.fromRGB(0, 255, 0)),
+    ColorSequenceKeypoint.new(0.8, Color3.fromRGB(0, 255, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 255))
+})
+
+local bgThumb = Instance.new("Frame", bgColorBar)
+bgThumb.Size = UDim2.new(0, 14, 1, 4)
+bgThumb.Position = UDim2.new(0, 0, 0, -2)
+bgThumb.BackgroundColor3 = Color3.new(1, 1, 1)
+bgThumb.ZIndex = 6
+Instance.new("UICorner", bgThumb).CornerRadius = UDim.new(0, 6)
+
+bgColorBar.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        draggingBgCol = true
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
     if draggingBgCol and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
         local mousePos = input.Position.X
         local barPos = bgColorBar.AbsolutePosition.X
@@ -2264,6 +2335,22 @@ local MOCKAPI_URL = "https://6aef2e43b9925b27ce16b743.mockapi.io/v1/Feedback"
 local feedbackCount = 0
 local cooldownActive = false
 
+local function sendFeedbackRequest(jsonBody)
+    if request or http_request or (syn and syn.request) then
+        local reqFunc = request or http_request or (syn and syn.request)
+        local res = reqFunc({
+            Url = MOCKAPI_URL,
+            Method = "POST",
+            Headers = { ["Content-Type"] = "application/json" },
+            Body = jsonBody
+        })
+        if res and (res.StatusCode == 200 or res.StatusCode == 201) then
+            return true, res
+        end
+    end
+    return HttpService:PostAsync(MOCKAPI_URL, jsonBody, Enum.HttpContentType.ApplicationJson)
+end
+
 fbSubmitBtn.MouseButton1Click:Connect(function()
     local feedbackText = fbTextBox.Text
     if feedbackText == "" then
@@ -2288,7 +2375,7 @@ fbSubmitBtn.MouseButton1Click:Connect(function()
                 timestamp = os.date("%Y-%m-%d %H:%M:%S")
             }
             local jsonBody = HttpService:JSONEncode(data)
-            return HttpService:PostAsync(MOCKAPI_URL, jsonBody, Enum.HttpContentType.ApplicationJson)
+            return sendFeedbackRequest(jsonBody)
         end)
 
         if success then
