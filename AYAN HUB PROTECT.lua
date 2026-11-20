@@ -144,7 +144,7 @@ tgImage.Size = UDim2.new(1, -8, 1, -8)
 tgImage.Position = UDim2.new(0.5, 0, 0.5, 0)
 tgImage.AnchorPoint = Vector2.new(0.5, 0.5)
 tgImage.BackgroundTransparency = 1
-tgImage.Image = "rbxassetid://125157479493186"
+tgImage.Image = "rbxassetid://101277176104088"
 tgImage.ZIndex = 3
 Instance.new("UICorner", tgImage).CornerRadius = UDim.new(1, 0)
 
