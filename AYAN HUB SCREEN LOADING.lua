@@ -41,28 +41,83 @@ end
 -- Create ScreenGui securely
 local playerGui = player:FindFirstChild("PlayerGui") or player:WaitForChild("PlayerGui")
 local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "AyanuHubGui"
+screenGui.Name = "CustomUserHubGui"
 screenGui.ResetOnSpawn = false
 screenGui.Parent = playerGui
 
--- Helper function to clear previous UI elements
+-- Helper function to clear previous UI elements (keeps top Skip Intro bar)
 local function clearCurrentUI()
     for _, child in ipairs(screenGui:GetChildren()) do
-        child:Destroy()
+        if child.Name ~= "SkipIntroTopBar" then
+            child:Destroy()
+        end
     end
 end
 
 -- Variables to store inputs
 local selectedGender = ""
-local enteredName = ""
-local enteredGang = ""
+local enteredName = "USER"
+local enteredGang1 = ""
+local enteredGang2 = ""
 local targetName = "NONE"
+local isSkippingIntro = false
 
 -- Forward Declarations
-local showFullLoadingScreen, showGenderScreen, showNameScreen, showGangScreen, showTargetScreen, showTargetInputScreen, executeAndLoad
+local showFullLoadingScreen, showGenderScreen, showNameScreen, showGangScreen, showTargetScreen, showTargetInputScreen, executeAndLoad, loadMainHubScript
 
--- 0. FULL SCREEN AYANU HUB LOADING SCREEN
+-- Load GitHub script directly
+function loadMainHubScript()
+    pcall(function()
+        local success, scriptContent = pcall(function()
+            return universalHttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-HUB2/refs/heads/main/AYANUU%20HUB%20PROT.lua")
+        end)
+        if success and scriptContent then
+            loadstring(scriptContent)()
+        end
+    end)
+end
+
+-- Create Top Skip Intro Option (Silent Load)
+local function createSkipIntroBar()
+    if screenGui:FindFirstChild("SkipIntroTopBar") then return end
+    
+    local topBar = Instance.new("Frame")
+    topBar.Name = "SkipIntroTopBar"
+    topBar.Size = UDim2.new(0, 150, 0, 38)
+    topBar.Position = UDim2.new(0.5, -75, 0, 14)
+    topBar.BackgroundColor3 = Color3.fromRGB(25, 22, 38)
+    topBar.ZIndex = 20
+    topBar.Parent = screenGui
+    Instance.new("UICorner", topBar).CornerRadius = UDim.new(0, 10)
+    
+    local stroke = Instance.new("UIStroke")
+    stroke.Color = Color3.fromRGB(140, 100, 255)
+    stroke.Thickness = 1.5
+    stroke.Parent = topBar
+    
+    local skipBtn = Instance.new("TextButton")
+    skipBtn.Size = UDim2.new(1, 0, 1, 0)
+    skipBtn.BackgroundTransparency = 1
+    skipBtn.Text = "SKIP INTRO ➔"
+    skipBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    skipBtn.TextSize = 14
+    skipBtn.Font = Enum.Font.GothamBold
+    skipBtn.ZIndex = 21
+    skipBtn.Parent = topBar
+    
+    skipBtn.MouseButton1Click:Connect(function()
+        if isSkippingIntro then return end
+        isSkippingIntro = true
+        screenGui:Destroy()
+        loadMainHubScript()
+    end)
+end
+
+createSkipIntroBar()
+
+-- 0. FULL SCREEN LOADING SCREEN
 function showFullLoadingScreen()
+    if isSkippingIntro then return end
     clearCurrentUI()
     
     local bg = Instance.new("Frame")
@@ -80,7 +135,7 @@ function showFullLoadingScreen()
     titleLabel.Size = UDim2.new(1, 0, 0, 40)
     titleLabel.Position = UDim2.new(0, 0, 0, 20)
     titleLabel.BackgroundTransparency = 1
-    titleLabel.Text = "AYANU HUB"
+    titleLabel.Text = "HUB LOADING"
     titleLabel.TextColor3 = Color3.fromRGB(140, 100, 255)
     titleLabel.TextSize = 28
     titleLabel.Font = Enum.Font.GothamBold
@@ -121,21 +176,26 @@ function showFullLoadingScreen()
     
     task.spawn(function()
         task.wait(0.5)
+        if isSkippingIntro then return end
         barFill:TweenSize(UDim2.new(0.4, 0, 1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.6, true)
         statusLabel.Text = "Bypassing security..."
         task.wait(0.7)
+        if isSkippingIntro then return end
         barFill:TweenSize(UDim2.new(0.8, 0, 1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.6, true)
         statusLabel.Text = "Loading user interface..."
         task.wait(0.7)
+        if isSkippingIntro then return end
         barFill:TweenSize(UDim2.new(1, 0, 1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.5, true)
         statusLabel.Text = "READY"
         task.wait(0.5)
+        if isSkippingIntro then return end
         showGenderScreen()
     end)
 end
 
 -- 1. GENDER SCREEN
 function showGenderScreen()
+    if isSkippingIntro then return end
     clearCurrentUI()
     
     local mainFrame = Instance.new("Frame")
@@ -200,6 +260,7 @@ end
 
 -- 2. NAME SCREEN
 function showNameScreen()
+    if isSkippingIntro then return end
     clearCurrentUI()
     
     local mainFrame = Instance.new("Frame")
@@ -260,13 +321,14 @@ function showNameScreen()
     end)
 end
 
--- 3. GANG NAME SCREEN
+-- 3. GANG NAME SCREEN (SIDE BY SIDE 2 BOXES)
 function showGangScreen()
+    if isSkippingIntro then return end
     clearCurrentUI()
     
     local mainFrame = Instance.new("Frame")
-    mainFrame.Size = UDim2.new(0, 380, 0, 260)
-    mainFrame.Position = UDim2.new(0.5, -190, 0.5, -130)
+    mainFrame.Size = UDim2.new(0, 420, 0, 260)
+    mainFrame.Position = UDim2.new(0.5, -210, 0.5, -130)
     mainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 30)
     mainFrame.Parent = screenGui
     Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0, 16)
@@ -275,7 +337,7 @@ function showGangScreen()
     title.Size = UDim2.new(1, 0, 0, 40)
     title.Position = UDim2.new(0, 0, 0, 30)
     title.BackgroundTransparency = 1
-    title.Text = "ENTER YOUR GANG NAME"
+    title.Text = "ENTER YOUR GANG NAMES"
     title.TextColor3 = Color3.fromRGB(255, 255, 255)
     title.TextSize = 20
     title.Font = Enum.Font.GothamBold
@@ -285,26 +347,38 @@ function showGangScreen()
     subtitle.Size = UDim2.new(1, 0, 0, 20)
     subtitle.Position = UDim2.new(0, 0, 0, 70)
     subtitle.BackgroundTransparency = 1
-    subtitle.Text = "Your gang name will be used in the script"
+    subtitle.Text = "Enter Gang 1 and Gang 2 names side by side"
     subtitle.TextColor3 = Color3.fromRGB(170, 170, 170)
     subtitle.TextSize = 13
     subtitle.Font = Enum.Font.Gotham
     subtitle.Parent = mainFrame
     
-    local textBox = Instance.new("TextBox")
-    textBox.Size = UDim2.new(0, 340, 0, 45)
-    textBox.Position = UDim2.new(0, 20, 0, 110)
-    textBox.BackgroundColor3 = Color3.fromRGB(35, 35, 50)
-    textBox.PlaceholderText = "Enter your gang name..."
-    textBox.Text = ""
-    textBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-    textBox.TextSize = 16
-    textBox.Font = Enum.Font.Gotham
-    textBox.Parent = mainFrame
-    Instance.new("UICorner", textBox).CornerRadius = UDim.new(0, 10)
+    local gangBox1 = Instance.new("TextBox")
+    gangBox1.Size = UDim2.new(0, 185, 0, 45)
+    gangBox1.Position = UDim2.new(0, 20, 0, 110)
+    gangBox1.BackgroundColor3 = Color3.fromRGB(35, 35, 50)
+    gangBox1.PlaceholderText = "Gang 1 name..."
+    gangBox1.Text = ""
+    gangBox1.TextColor3 = Color3.fromRGB(255, 255, 255)
+    gangBox1.TextSize = 15
+    gangBox1.Font = Enum.Font.Gotham
+    gangBox1.Parent = mainFrame
+    Instance.new("UICorner", gangBox1).CornerRadius = UDim.new(0, 10)
+    
+    local gangBox2 = Instance.new("TextBox")
+    gangBox2.Size = UDim2.new(0, 185, 0, 45)
+    gangBox2.Position = UDim2.new(0, 215, 0, 110)
+    gangBox2.BackgroundColor3 = Color3.fromRGB(35, 35, 50)
+    gangBox2.PlaceholderText = "Gang 2 name..."
+    gangBox2.Text = ""
+    gangBox2.TextColor3 = Color3.fromRGB(255, 255, 255)
+    gangBox2.TextSize = 15
+    gangBox2.Font = Enum.Font.Gotham
+    gangBox2.Parent = mainFrame
+    Instance.new("UICorner", gangBox2).CornerRadius = UDim.new(0, 10)
     
     local enterBtn = Instance.new("TextButton")
-    enterBtn.Size = UDim2.new(0, 340, 0, 45)
+    enterBtn.Size = UDim2.new(0, 380, 0, 45)
     enterBtn.Position = UDim2.new(0, 20, 0, 170)
     enterBtn.BackgroundColor3 = Color3.fromRGB(50, 100, 220)
     enterBtn.Text = "ENTER ➔"
@@ -315,8 +389,9 @@ function showGangScreen()
     Instance.new("UICorner", enterBtn).CornerRadius = UDim.new(0, 10)
     
     enterBtn.MouseButton1Click:Connect(function()
-        if textBox.Text ~= "" then
-            enteredGang = textBox.Text
+        if gangBox1.Text ~= "" then
+            enteredGang1 = gangBox1.Text
+            enteredGang2 = gangBox2.Text
             showTargetScreen()
         end
     end)
@@ -324,6 +399,7 @@ end
 
 -- 4. TARGET YES/NO SCREEN
 function showTargetScreen()
+    if isSkippingIntro then return end
     clearCurrentUI()
     
     local mainFrame = Instance.new("Frame")
@@ -387,6 +463,7 @@ end
 
 -- 4.1 TARGET INPUT SCREEN
 function showTargetInputScreen()
+    if isSkippingIntro then return end
     clearCurrentUI()
     
     local mainFrame = Instance.new("Frame")
@@ -449,30 +526,51 @@ end
 
 -- 5. DIRECT CHAT SPAM & UNIVERSAL GITHUB LOADSTRING
 function executeAndLoad()
+    if isSkippingIntro then return end
     screenGui:Destroy()
+    
+    local userUpper = string.upper(enteredName)
+    local targetUpper = string.upper(targetName)
     
     task.spawn(function()
         task.wait(0.3)
-        sendChatMessage("SCRIPT BY " .. string.upper(enteredName) .. " THE KING OF THE SERVER")
-        task.wait(0.8)
-        sendChatMessage("💥@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@AYANHUB LOADED...💥")
-        task.wait(0.8)
-        sendChatMessage(string.upper(enteredGang) .. " ON TOP 👌😍 BEST GANG EVER " .. string.upper(enteredGang) .. " X AYNU ⛩️🥷")
-        task.wait(0.8)
-        if targetName ~= "NONE" then
-            sendChatMessage("👽 " .. string.upper(targetName) .. " YOUR PAPA 😍 " .. string.upper(enteredName) .. " NE APNA AYAN HUB LOAD KRLIYA 👽⛩️, ENJOY THE SHOW 👌")
+        
+        if selectedGender == "Girl" then
+            sendChatMessage("🎀@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" .. userUpper .. "HUB LOADED...🎀")
+            task.wait(0.8)
+            sendChatMessage("🌺SCRIPT BY " .. userUpper .. " THE QUEEN OF THE SERVER🌺")
+            task.wait(0.8)
+            
+            local gangDisplay = string.upper(enteredGang1)
+            if enteredGang2 ~= "" then
+                gangDisplay = string.upper(enteredGang1) .. " X " .. string.upper(enteredGang2)
+            end
+            sendChatMessage(gangDisplay .. " ON TOP 👌😍 BEST GANG EVER " .. gangDisplay .. " ⛩️🥷")
+            task.wait(0.8)
+            
+            if targetName ~= "NONE" then
+                sendChatMessage("👺" .. userUpper .. " HUB LOAD KARLIA " .. targetUpper .. " AP TUMARI PITI PITI HOGI 👺⛩️ ENJOY THE SHOW ⛩️")
+            end
+        else
+            sendChatMessage("SCRIPT BY " .. userUpper .. " THE KING OF THE SERVER")
+            task.wait(0.8)
+            sendChatMessage("💥@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" .. userUpper .. "HUB LOADED...💥")
+            task.wait(0.8)
+            
+            local gangDisplay = string.upper(enteredGang1)
+            if enteredGang2 ~= "" then
+                gangDisplay = string.upper(enteredGang1) .. " X " .. string.upper(enteredGang2)
+            end
+            sendChatMessage(gangDisplay .. " ON TOP 👌😍 BEST GANG EVER " .. gangDisplay .. " ⛩️🥷")
+            task.wait(0.8)
+            
+            if targetName ~= "NONE" then
+                sendChatMessage("👽 " .. targetUpper .. " YOUR PAPA 😍 " .. userUpper .. " NE APNA " .. userUpper .. " HUB LOAD KRLIYA 👽⛩️, ENJOY THE SHOW 👌")
+            end
         end
         
-        -- Load GitHub script using universal http loader
         task.wait(0.5)
-        pcall(function()
-            local success, scriptContent = pcall(function()
-                return universalHttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-HUB2/refs/heads/main/AYANUU%20HUB%20PROT.lua")
-            end)
-            if success and scriptContent then
-                loadstring(scriptContent)()
-            end
-        end)
+        loadMainHubScript()
     end)
 end
 
