@@ -431,7 +431,7 @@ local function createLoadstringButton(parent, text, yPos, url)
 end
 
 -- 1. Targeting Section
-local sf = CreateSection("Target", 830)
+local sf = CreateSection("⚔️Target⚔️", 830)
 sf.Visible = true
 
 local tt2 = Instance.new("TextLabel", sf)
@@ -442,7 +442,7 @@ tt2.BackgroundTransparency = 0.88
 tt2.TextColor3 = Color3.new(1, 1, 1)
 tt2.Font = Enum.Font.GothamBold 
 tt2.TextSize = 13
-tt2.Text = " $ ZM $ # AYANUU # + My Roblox Sec Account AYANUU160 Script Developer"
+tt2.Text = "$ ZM $ # AYANUU # + My Roblox Sec Account AYANUU160 Script Developer"
 tt2.ZIndex = 4
 Instance.new("UICorner", tt2).CornerRadius = UDim.new(0, 10)
 table.insert(softRgbElements, {Type = "TextColor", Obj = tt2})
@@ -875,7 +875,7 @@ _, setUIView = CreateToggleSwitch(sf, "View / Unview", 732, function(state)
 end, false)
 
 -- 2. Shield Section
-local shield1FF = CreateSection("Shield1", 350)
+local shield1FF = CreateSection("😈Shield1😈", 350)
 local s1Header = Instance.new("TextLabel", shield1FF)
 s1Header.Size = UDim2.new(1, -20, 0, 36)
 s1Header.Position = UDim2.new(0, 10, 0, 10)
@@ -919,7 +919,7 @@ CreateToggleSwitch(shield1FF, "Anti sit on off (antisitv2)", 288, function(v)
 end, false)
 
 -- 3. AntiBang Section
-local shield2FF = CreateSection("Shield2", 750)
+local shield2FF = CreateSection("🛡️Shield2🛡️", 750)
 local s2Header = Instance.new("TextLabel", shield2FF)
 s2Header.Size = UDim2.new(1, -20, 0, 36)
 s2Header.Position = UDim2.new(0, 10, 0, 10)
@@ -928,7 +928,7 @@ s2Header.BackgroundTransparency = 0.85
 s2Header.TextColor3 = Color3.new(1, 1, 1)
 s2Header.Font = Enum.Font.GothamBold 
 s2Header.TextSize = 15
-s2Header.Text = "🛡️ AntiBang & Loadstrings"
+s2Header.Text = "🛡️ AntiBang & BANG SCRIPT 🛡️"
 s2Header.ZIndex = 4
 Instance.new("UICorner", s2Header).CornerRadius = UDim.new(0, 12)
 
@@ -970,16 +970,16 @@ task.spawn(function()
 end)
 
 createLoadstringButton(shield2FF, "🛡️ BEST ANTIBANG EVER", 110, "https://pastebin.com/raw/80Nva2Fj")
-createLoadstringButton(shield2FF, "🛡️ AntiBangV2", 158, "https://scriptblox.com/raw/Universal-Script-Anti-Bang-48256")
+createLoadstringButton(shield2FF, "🛡️ ANTIBANGV2", 158, "https://scriptblox.com/raw/Universal-Script-Anti-Bang-48256")
 createLoadstringButton(shield2FF, "🛡️ AntiBang Script 3", 206, "Aapki_Teesri_Script_Ka_Link")
 createLoadstringButton(shield2FF, "🛡️ AntiBang Script 4", 254, "Aapki_Chauthi_Script_Ka_Link")
 createLoadstringButton(shield2FF, "🛡️ AntiBang Script 5", 302, "Aapki_Paanchv_Script_Ka_Link")
 createLoadstringButton(shield2FF, "🛡️ AntiBang Script 6", 350, "Aapki_Chhathi_Script_Ka_Link")
 createLoadstringButton(shield2FF, "🛡️ AntiBang Script 7", 398, "Aapki_Saatv_Script_Ka_Link")
-createLoadstringButton(shield2FF, "🛡️ AntiBang Script 8", 446, "Aapki_Aathv_Script_Ka_Link")
-createLoadstringButton(shield2FF, "🛡️ AntiBang Script 9", 494, "Aapki_Nauv_Script_Ka_Link")
-createLoadstringButton(shield2FF, "🛡️ AntiBang Script 10", 542, "Aapki_Dasv_Script_Ka_Link")
-createLoadstringButton(shield2FF, "🛡️ AntiBang Script 11", 590, "Aapki_Gyarahv_Script_Ka_Link")
+createLoadstringButton(shield2FF, "🛡️ BANG ", 446, "https://raw.githubusercontent.com/ayanjaveed503-a11y/All-Resources/refs/heads/main/Bang.lua")
+createLoadstringButton(shield2FF, "🛡️ MOUTH BANG ", 494, "https://raw.githubusercontent.com/ayanjaveed503-a11y/All-Resources/refs/heads/main/mouthbang.lua")
+createLoadstringButton(shield2FF, "🛡️ MULTI BANG ", 542, "https://raw.githubusercontent.com/ayanjaveed503-a11y/All-Resources/refs/heads/main/Multi%20bang.lua")
+createLoadstringButton(shield2FF, "🛡️ UNLIMITED TARGET BANG ", 590, "https://raw.githubusercontent.com/ayanjaveed503-a11y/All-Resources/refs/heads/main/Unlimited%20target%20bang.lua")
 createLoadstringButton(shield2FF, "🛡️ AntiBang Script 12", 638, "Aapki_Barahv_Script_Ka_Link")
 createLoadstringButton(shield2FF, "🛡️ AntiBang Script 13", 686, "Aapki_Terahv_Script_Ka_Link")
 
@@ -1010,7 +1010,7 @@ R.Heartbeat:Connect(function()
 end)
 
 -- 4. Player Section
-local playerFF = CreateSection("Player", 550)
+local playerFF = CreateSection("👤Player👤", 550)
 
 local playerHeader = Instance.new("TextLabel", playerFF)
 playerHeader.Size = UDim2.new(1, -20, 0, 36)
@@ -1020,7 +1020,7 @@ playerHeader.BackgroundTransparency = 0.85
 playerHeader.TextColor3 = Color3.new(1, 1, 1)
 playerHeader.Font = Enum.Font.GothamBold 
 playerHeader.TextSize = 15
-playerHeader.Text = "👑 Player Control & Mobile Fly"
+playerHeader.Text = "👑 Player Control & Mobile Fly 👑"
 playerHeader.ZIndex = 4
 Instance.new("UICorner", playerHeader).CornerRadius = UDim.new(0, 12)
 
@@ -1234,7 +1234,7 @@ R.PostSimulation:Connect(function()
 end)
 
 -- 5. Fling All Tab
-local flingAllFF = CreateSection("FlingAll", 420)
+local flingAllFF = CreateSection("💀 FlingAll 💀", 420)
 local faHeader = Instance.new("TextLabel", flingAllFF)
 faHeader.Size = UDim2.new(1, -20, 0, 36)
 faHeader.Position = UDim2.new(0, 10, 0, 10)
@@ -1243,7 +1243,7 @@ faHeader.BackgroundTransparency = 0.85
 faHeader.TextColor3 = Color3.new(1, 1, 1)
 faHeader.Font = Enum.Font.GothamBold 
 faHeader.TextSize = 15
-faHeader.Text = "💀 Fling All & Target Selector"
+faHeader.Text = "💀 Fling All & Target Selector 💀"
 faHeader.ZIndex = 4
 Instance.new("UICorner", faHeader).CornerRadius = UDim.new(0, 12)
 
@@ -1412,7 +1412,7 @@ stopFlingAllBtn.MouseButton1Click:Connect(function()
 end)
 
 -- 6. All Spam Section
-local allSpamFF = CreateSection("AllSpam", 1000)
+local allSpamFF = CreateSection("⚡AllSpam⚡", 1000)
 local asHeader = Instance.new("TextLabel", allSpamFF)
 asHeader.Size = UDim2.new(1, -20, 0, 36)
 asHeader.Position = UDim2.new(0, 10, 0, 10)
@@ -1421,7 +1421,7 @@ asHeader.BackgroundTransparency = 0.85
 asHeader.TextColor3 = Color3.new(1, 1, 1)
 asHeader.Font = Enum.Font.GothamBold 
 asHeader.TextSize = 15
-asHeader.Text = "📢 Spammers & GitHub Custom Slots"
+asHeader.Text = "⚡ ZM ALL SPAMMER ⚡"
 asHeader.ZIndex = 4
 Instance.new("UICorner", asHeader).CornerRadius = UDim.new(0, 12)
 
@@ -1457,7 +1457,7 @@ createLoadstringButton(allSpamFF, " Spam Slot 9", 908, "GitHub_Link_9_Yahan_Past
 createLoadstringButton(allSpamFF, " Spam Slot 10", 956, "GitHub_Link_10_Yahan_Paste_Karein")
 
 -- 7. Script Section
-local mastScriptFF = CreateSection("MastScript", 550)
+local mastScriptFF = CreateSection("🔥MastScript🔥", 550)
 local msHeader = Instance.new("TextLabel", mastScriptFF)
 msHeader.Size = UDim2.new(1, -20, 0, 36)
 msHeader.Position = UDim2.new(0, 10, 0, 10)
@@ -1466,7 +1466,7 @@ msHeader.BackgroundTransparency = 0.85
 msHeader.TextColor3 = Color3.new(1, 1, 1)
 msHeader.Font = Enum.Font.GothamBold 
 msHeader.TextSize = 15
-msHeader.Text = "🔥 Script Section & Loadstrings"
+msHeader.Text = "🔥 Script Section 🔥"
 msHeader.ZIndex = 4
 Instance.new("UICorner", msHeader).CornerRadius = UDim.new(0, 12)
 
@@ -1482,7 +1482,7 @@ createLoadstringButton(mastScriptFF, "📜 Script Hub soon 9", 440, "Aapki_Nauv_
 createLoadstringButton(mastScriptFF, "📜 Script Hub soon 10", 488, "Aapki_Dasv_Script_Ka_Link")
 
 -- 8. Life Together Section
-local lifeTogetherFF = CreateSection("LifeTogether", 550)
+local lifeTogetherFF = CreateSection("🏠LifeTogether🏠", 550)
 
 local lockScreen = Instance.new("Frame", lifeTogetherFF)
 lockScreen.Size = UDim2.new(1, 0, 1, 0)
@@ -1546,7 +1546,7 @@ ltHeader.BackgroundTransparency = 0.85
 ltHeader.TextColor3 = Color3.new(1, 1, 1)
 ltHeader.Font = Enum.Font.GothamBold 
 ltHeader.TextSize = 15
-ltHeader.Text = "🏡 Life Together & Loadstrings"
+ltHeader.Text = "🏡 Life Together NEW SCRIPT "🏡"
 ltHeader.ZIndex = 5
 Instance.new("UICorner", ltHeader).CornerRadius = UDim.new(0, 12)
 
@@ -1574,7 +1574,7 @@ passBox.FocusLost:Connect(function(enterPressed)
 end)
 
 -- 9. Player List & Game Time Section
-local ptFF = CreateSection("PlayTime", 600)
+local ptFF = CreateSection("👥 PlayTime 👥", 600)
 local ptHeader = Instance.new("TextLabel", ptFF)
 ptHeader.Size = UDim2.new(1, -20, 0, 36)
 ptHeader.Position = UDim2.new(0, 10, 0, 10)
@@ -1583,7 +1583,7 @@ ptHeader.BackgroundTransparency = 0.85
 ptHeader.TextColor3 = Color3.new(1, 1, 1)
 ptHeader.Font = Enum.Font.GothamBold 
 ptHeader.TextSize = 15
-ptHeader.Text = "👥 Player List & Server Time Tracker"
+ptHeader.Text = "👥 Player List & Server Time Tracker 👥"
 ptHeader.ZIndex = 4
 Instance.new("UICorner", ptHeader).CornerRadius = UDim.new(0, 12)
 
@@ -1678,7 +1678,7 @@ task.spawn(function()
 end)
 
 -- 10. Anti-AFK Section
-local afkFF = CreateSection("AFK", 230)
+local afkFF = CreateSection("⌛AFK⌛", 230)
 
 local afkMain = Instance.new("Frame", afkFF)
 afkMain.Size = UDim2.new(1, -20, 0, 175)
@@ -1830,7 +1830,7 @@ task.spawn(function()
 end)
 
 -- 11. Enhanced FPS Section
-local fpsFF = CreateSection("FPS", 220)
+local fpsFF = CreateSection("📊 FPS 📊", 220)
 local titleLbl = Instance.new("TextLabel", fpsFF)
 titleLbl.Size = UDim2.new(1, -20, 0, 32)
 titleLbl.Position = UDim2.new(0, 10, 0, 10)
@@ -1839,7 +1839,7 @@ titleLbl.BackgroundTransparency = 0.85
 titleLbl.TextColor3 = Color3.new(1, 1, 1)
 titleLbl.Font = Enum.Font.GothamBold 
 titleLbl.TextSize = 14
-titleLbl.Text = "📊 Enhanced FPS & Boosters"
+titleLbl.Text = "📊 Enhanced FPS & Boosters 📊"
 titleLbl.ZIndex = 4
 Instance.new("UICorner", titleLbl).CornerRadius = UDim.new(0, 10)
 
@@ -1894,7 +1894,7 @@ rjBtn.MouseButton1Click:Connect(function()
 end)
 
 -- 13. Notes Section
-local notesFF = CreateSection("Notes", 520)
+local notesFF = CreateSection("📜 Notes 📜", 520)
 local notesHeader = Instance.new("TextLabel", notesFF)
 notesHeader.Size = UDim2.new(1, -20, 0, 36)
 notesHeader.Position = UDim2.new(0, 10, 0, 10)
@@ -1903,7 +1903,7 @@ notesHeader.BackgroundTransparency = 0.85
 notesHeader.TextColor3 = Color3.new(1, 1, 1)
 notesHeader.Font = Enum.Font.GothamBold 
 notesHeader.TextSize = 15
-notesHeader.Text = "📜 Panel Complete Features Guide"
+notesHeader.Text = "📜 Panel Complete Features Guide 📜"
 notesHeader.ZIndex = 4
 Instance.new("UICorner", notesHeader).CornerRadius = UDim.new(0, 12)
 
@@ -1945,7 +1945,7 @@ notesBody.Text = [[
 notesBody.ZIndex = 5
 
 -- 14. Theme Tab
-local themeFF = CreateSection("Theme", 1550)
+local themeFF = CreateSection("🎨 Theme 🎨", 1550)
 local themeHeader = Instance.new("TextLabel", themeFF)
 themeHeader.Size = UDim2.new(1, -20, 0, 36)
 themeHeader.Position = UDim2.new(0, 10, 0, 10)
@@ -1954,7 +1954,7 @@ themeHeader.BackgroundTransparency = 0.85
 themeHeader.TextColor3 = Color3.new(1, 1, 1)
 themeHeader.Font = Enum.Font.GothamBold 
 themeHeader.TextSize = 15
-themeHeader.Text = "🎨 Theme & Customization // iOS Glass"
+themeHeader.Text = "🎨 Theme & Customization 🎨"
 themeHeader.ZIndex = 4
 Instance.new("UICorner", themeHeader).CornerRadius = UDim.new(0, 12)
 
@@ -2191,7 +2191,7 @@ destroyGuiBtn.MouseButton1Click:Connect(function()
 end)
 
 -- 15. Feedback Tab
-local feedbackFF = CreateSection("Feedback", 450)
+local feedbackFF = CreateSection("✉️ Feedback ✉️", 450)
 local fbHeader = Instance.new("TextLabel", feedbackFF)
 fbHeader.Size = UDim2.new(1, -20, 0, 36)
 fbHeader.Position = UDim2.new(0, 10, 0, 10)
