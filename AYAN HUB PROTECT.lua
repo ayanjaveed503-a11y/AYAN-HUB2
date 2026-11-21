@@ -2154,25 +2154,25 @@ UnlockBtn = LifeTogetherTab:Button({
                 Desc = "Click to open the outfit copier GUI",
                 Callback = function()
                     PlayClickSound()
-                    loadstring(game:HttpGet(("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-OUTFIT-STEALER/refs/heads/main/AYAN%20OUTFIT%20STEALER"), true))()
+                    loadstring(game:HttpGet(("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-OUTFIT-STEALER/refs/heads/main/AYAN%20OUTFIT%20STEALER%20TESTING"), true))()
                 end,
             })
 
             LifeTogetherTab:Button({
-                Title = "AYANUU 👹 ULTIMATE TRAPPING 🌪️",
-                Desc = "Click to open the Ultimate Pyramid Trap GUI",
+                Title = "AYANUU OUTFIT MANAGER",
+                Desc = "Click to open",
                 Callback = function()
                     PlayClickSound()
-                    loadstring(game:HttpGet(("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-HUB-TRAP-CHAIR/refs/heads/main/AYAN%20HUB%20TRAP%20CHAIR"), true))()
+                    loadstring(game:HttpGet(("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-OUTFIT-STEALER/refs/heads/main/OUTFIT%20MANAGER"), true))()
                 end,
             })
 
             LifeTogetherTab:Button({
-                Title = "MAP COVER",
+                Title = "COVER MAP",
                 Desc = "Click to open ",
                 Callback = function()
                     PlayClickSound()
-                    loadstring(game:HttpGet(("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-HUB-TRAP-CHAIds/main/AYAN%20HUB%20TRAP%20CHAIR"), true))()
+                    loadstring(game:HttpGet(("https://raw.githubusercontent.com/MANASMCPE/AUTH0R/refs/heads/main/mapCover.lua"), true))()
                 end,
             })
 
@@ -2190,7 +2190,7 @@ UnlockBtn = LifeTogetherTab:Button({
                 Desc = "Click to open ",
                 Callback = function()
                     PlayClickSound()
-                    loadstring(game:HttpGet(("https://raw.githubusercontent.com/ayanjaveed503-a11y/AIds/main/AYAN%20HUB%20TRAP%20CHAIR"), true))()
+                    loadstring(game:HttpGet(("https://raw.githubusercontent.com/MANASMCPE/AUTH0R/refs/heads/main/size-resizer.lua"), true))()
                 end,
             })
             
