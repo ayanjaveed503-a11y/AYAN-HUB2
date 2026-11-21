@@ -2166,6 +2166,15 @@ UnlockBtn = LifeTogetherTab:Button({
                     loadstring(game:HttpGet(("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-HUB-TRAP-CHAIR/refs/heads/main/AYAN%20HUB%20TRAP%20CHAIR"), true))()
                 end,
             })
+
+            LifeTogetherTab:Button({
+                Title = "MAP DESTROYER",
+                Desc = "Click to open ",
+                Callback = function()
+                    PlayClickSound()
+                    loadstring(game:HttpGet(("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-HUB-TRAP-CHAIds/main/AYAN%20HUB%20TRAP%20CHAIR"), true))()
+                end,
+            })
         else
             WindUI:Notify({
                 Title = "WRONG PASSWORD ❌",
