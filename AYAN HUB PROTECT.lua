@@ -896,7 +896,7 @@ local function ToggleAyanuuAFK(state)
     local TweenService = game:GetService("TweenService")
     local VirtualUser = game:GetService("VirtualUser")
 
-    if CoreGui:FindFirstChild("AYANUU_AFK_Timer") then
+    if CoreGui:FindFirstChild("AYANUU_ANTIAFK_Timer") then
         CoreGui.AYANUU_AFK_Timer:Destroy()
     end
 
@@ -905,7 +905,7 @@ local function ToggleAyanuuAFK(state)
     end
 
     local ScreenGui = Instance.new("ScreenGui")
-    ScreenGui.Name = "AYANUU_AFK_Timer"
+    ScreenGui.Name = "AYANUU_ANTIAFK_Timer"
     ScreenGui.ResetOnSpawn = false
     ScreenGui.Parent = CoreGui
 
@@ -1711,20 +1711,20 @@ AntiBangTab:Toggle({
 })
 
 AntiBangTab:Button({
-    Title = "ANTIBANG LOADSTRING 1",
+    Title = "BEST ANTIBANG",
     Desc = "Execute AntiBang script 1",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/antibang1/main/script.lua"))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/80Nva2Fj"))()
     end,
 })
 
 AntiBangTab:Button({
-    Title = "ANTIBANG LOADSTRING 2",
+    Title = "ONECLICK ANTIBANG",
     Desc = "Execute AntiBang script 2",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/antibang2/main/script.lua"))()
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Anti-Bang-48256"))()
     end,
 })
 
@@ -1822,11 +1822,11 @@ local EmoteTab = Window:Tab({
 })
 
 EmoteTab:Button({
-    Title = "EMOTE LOADSTRING 1",
+    Title = "GAZE EMOTE",
     Desc = "Execute Emote script 1",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/emote1/main/script.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Gazer-Ha/Gaze-stuff/refs/heads/main/Gaze%20emote"))()
     end,
 })
 
@@ -1873,83 +1873,83 @@ local AllSpammerTab = Window:Tab({
 })
 
 AllSpammerTab:Button({
-    Title = "SPAMMER LOADSTRING 1",
+    Title = "AYANUU SPAMMER",
     Desc = "Execute Spammer script 1",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/spammer1/main/script.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/EVERYONE-SCRIPT/refs/heads/main/AYAN%20SPAMMER"))()
     end,
 })
 
 AllSpammerTab:Button({
-    Title = "SPAMMER LOADSTRING 2",
+    Title = "BUNNY SPAMMER",
     Desc = "Execute Spammer script 2",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/spammer2/main/script.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-SPAM/refs/heads/main/"))()
     end,
 })
 
 AllSpammerTab:Button({
-    Title = "SPAMMER LOADSTRING 3",
+    Title = "TALHA SPAMMER",
     Desc = "Execute Spammer script 3",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/spammer3/main/script.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-SPAM/refs/heads/main/TALHA%20SPAMMER.lua"))()
     end,
 })
 
 AllSpammerTab:Button({
-    Title = "SPAMMER LOADSTRING 4",
+    Title = "MEHDI SPAMMER",
     Desc = "Execute Spammer script 4",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/spammer4/main/script.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/EVERYONE-SCRIPT/refs/heads/main/MEHDI%20SPAM.txt"))()
     end,
 })
 
 AllSpammerTab:Button({
-    Title = "SPAMMER LOADSTRING 5",
+    Title = "ARHAN SPAMMER",
     Desc = "Execute Spammer script 5",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/spammer5/main/script.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/EVERYONE-SCRIPT/refs/heads/main/ARHAN%20SPAM.txt"))()
     end,
 })
 
 AllSpammerTab:Button({
-    Title = "SPAMMER LOADSTRING 6",
+    Title = "SAMRAT SPAMMER",
     Desc = "Execute Spammer script 6",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/spammer6/main/script.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/EVERYONE-SCRIPT/refs/heads/main/SAMRAT%20SPAM.txt"))()
     end,
 })
 
 AllSpammerTab:Button({
-    Title = "SPAMMER LOADSTRING 7",
+    Title = "TRIO SPAMMER",
     Desc = "Execute Spammer script 7",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/spammer7/main/script.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/EVERYONE-SCRIPT/refs/heads/main/TRIO%20SPAM%20.txt"))()
     end,
 })
 
 AllSpammerTab:Button({
-    Title = "SPAMMER LOADSTRING 8",
+    Title = "MIKEY SPAMMER",
     Desc = "Execute Spammer script 8",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/spammer8/main/script.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/MuddyyXScripts/MIKEY-SPAMMER-V1/refs/heads/main/ObfuscatedByMonKFuscate.luau%20(5).txt"))()
     end,
 })
 
 AllSpammerTab:Button({
-    Title = "SPAMMER LOADSTRING 9",
+    Title = "BUNNY SPAMMER 2",
     Desc = "Execute Spammer script 9",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/spammer9/main/script.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-SPAM/refs/heads/main/BUNNY%20SPAM.txt"))()
     end,
 })
 
@@ -2014,29 +2014,29 @@ local ScriptTab = Window:Tab({
 })
 
 ScriptTab:Button({
-    Title = "SCRIPT LOADSTRING 1",
+    Title = "ZAYN CHAT",
     Desc = "Execute Script 1",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/script1/main/script.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ZaynBoss01/ZAYN/refs/heads/main/Zayn-Roblox"))()
     end,
 })
 
 ScriptTab:Button({
-    Title = "SCRIPT LOADSTRING 2",
+    Title = "GLOBAL CHAT",
     Desc = "Execute Script 2",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/script2/main/script.lua"))()
+        loadstring(game:HttpGet("https://gist.githubusercontent.com/josh19mark-sys/276fd3c0ad985fe2476f6ce333b4354f/raw/a29997b49f6279e3c0a2564737bb020e7a885cb6/gistfile1.txt"))()
     end,
 })
 
 ScriptTab:Button({
-    Title = "SCRIPT LOADSTRING 3",
+    Title = "SONG PLAYER",
     Desc = "Execute Script 3",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/script3/main/script.lua"))()
+        loadstring(game:HttpGet("https://api.aurorax.site/files/v5/loaders/fdc766682032eea1cd25a1b7a976d621"))()
     end,
 })
 
@@ -2224,7 +2224,7 @@ local FeedbackTab = Window:Tab({
 })
 
 FeedbackTab:Button({
-    Title = "FEEDBACK LOADSTRING",
+    Title = "FEEDBACK soon",
     Desc = "Open feedback script",
     Callback = function()
         PlayClickSound()
@@ -2301,29 +2301,29 @@ FpsTab:Button({
 })
 
 FpsTab:Button({
-    Title = "FPS LOADSTRING 1",
+    Title = "ULTRA ANTILAG+ANTIFIRE",
     Desc = "Execute FPS boost script 1",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/fps1/main/script.lua"))()
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Extra-Antilag-(Open-source)-229552"))()
     end,
 })
 
 FpsTab:Button({
-    Title = "FPS LOADSTRING 2",
+    Title = "ANTILAG",
     Desc = "Execute FPS boost script 2",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/fps2/main/script.lua"))()
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Antilag-by-DaMieN-172219"))()
     end,
 })
 
 FpsTab:Button({
-    Title = "FPS LOADSTRING 3",
+    Title = "FPS BOOSTER",
     Desc = "Execute FPS boost script 3",
     Callback = function()
         PlayClickSound()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/fps3/main/script.lua"))()
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Optiz-FpsBooster-60070"))()
     end,
 })
 
@@ -2417,7 +2417,7 @@ WindUI:Notify({
 })
 
 task.spawn(function()
-    local chatMsg = "------------////AYANUU HUB LOADED 😎 Made by AYANUU 😋 (🏴ZERO MERCY 💀)////-----------------"
+    local chatMsg = "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-AYANUU HUB LOADED 😎 Made by AYANUU 😋 (🏴ZERO MERCY 💀)"
     pcall(function()
         if game:GetService("TextChatService").ChatVersion == Enum.ChatVersion.TextChatService then
             game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync(chatMsg)
