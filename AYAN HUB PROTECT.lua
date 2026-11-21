@@ -2120,7 +2120,7 @@ local LockInfo = LifeTogetherTab:Paragraph({
 
 local PassInput = LifeTogetherTab:Input({
     Title = "ENTER PASSWORD",
-    Desc = "Type 9900 to unlock",
+    Desc = "Type to unlock",
     Placeholder = "Password...",
     Callback = function(value)
         EnteredPassword = value
@@ -2150,7 +2150,7 @@ UnlockBtn = LifeTogetherTab:Button({
             end)
 
             LifeTogetherTab:Button({
-                Title = "AYANUU PREMIUM OUTFIT COPIER 🤩",
+                Title = "AYANUU PREMIUM OUTFIT COPIER ",
                 Desc = "Click to open the outfit copier GUI",
                 Callback = function()
                     PlayClickSound()
@@ -2168,7 +2168,34 @@ UnlockBtn = LifeTogetherTab:Button({
             })
 
             LifeTogetherTab:Button({
-                Title = "MAP DESTROYER",
+                Title = "MAP COVER",
+                Desc = "Click to open ",
+                Callback = function()
+                    PlayClickSound()
+                    loadstring(game:HttpGet(("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-HUB-TRAP-CHAIds/main/AYAN%20HUB%20TRAP%20CHAIR"), true))()
+                end,
+            })
+
+            LifeTogetherTab:Button({
+                Title = "MAP DESTROYER-code",
+                Desc = "Click to open",
+                Callback = function()
+                    PlayClickSound()
+                    loadstring(game:HttpGet(("https://raw.githubusercontent.com/ayanjaveed503-a11y/MAP-DESTROYER-/refs/heads/main/MAP%20DESTROYER.LUA"), true))()
+                end,
+            })
+            
+            LifeTogetherTab:Button({
+                Title = "PLAYER RESIZE",
+                Desc = "Click to open ",
+                Callback = function()
+                    PlayClickSound()
+                    loadstring(game:HttpGet(("https://raw.githubusercontent.com/ayanjaveed503-a11y/AIds/main/AYAN%20HUB%20TRAP%20CHAIR"), true))()
+                end,
+            })
+            
+            LifeTogetherTab:Button({
+                Title = "TRAP CHAIR",
                 Desc = "Click to open ",
                 Callback = function()
                     PlayClickSound()
@@ -2426,7 +2453,7 @@ WindUI:Notify({
 })
 
 task.spawn(function()
-    local chatMsg = "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-AYANUU HUB LOADED 😎 Made by AYANUU 😋 (🏴ZERO MERCY 💀)"
+    local chatMsg = "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-AYANUU HUB LOADED 😎 Made by AYANUU 😋 🏴ZERO MERCY 💀-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-"
     pcall(function()
         if game:GetService("TextChatService").ChatVersion == Enum.ChatVersion.TextChatService then
             game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync(chatMsg)
