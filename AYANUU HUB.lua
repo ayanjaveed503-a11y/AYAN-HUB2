@@ -16,7 +16,7 @@ local Camera = workspaceService.CurrentCamera
 local windui = loadstring(game:HttpGet("https://raw.githubusercontent.com/nxvap/windui/refs/heads/main/1.6.54.lua"))()
 
 local window = windui:CreateWindow({
-    Title = "👑AYANUU HUB👑 Client ( Universal )",
+    Title = "👑 AYANUU HUB Client ( Universal ) 👑",
     Author = "AYANUU 👑 · " .. localPlayer.DisplayName,
     Icon = "crown",
     Size = UDim2.fromOffset(540, 420),
@@ -25,7 +25,7 @@ local window = windui:CreateWindow({
     HideSearchBar = false,
     User = { Enabled = true },
     OpenButton = {
-        Title = "👑AYANUU HUB👑",
+        Title = "👑 AYANUU HUB 👑",
         Icon = "crown",
         CornerRadius = UDim.new(0, 15),
         StrokeThickness = 2,
@@ -1864,7 +1864,7 @@ HomeTab:Image({
 HomeTab:Space()
 
 HomeTab:Section({
-    Title = "👑AYANUU HUB👑 Client Universal",
+    Title = "👑 AYANUU HUB Client Universal 👑",
     TextSize = 24,
     FontWeight = Enum.FontWeight.SemiBold,
 })
@@ -1872,8 +1872,8 @@ HomeTab:Section({
 HomeTab:Space()
 
 HomeTab:Paragraph({
-    Title = "AYANUU 👑 HUB",
-    Desc = "MADE BY AYANUU 👑 | ID: ZM_AYANUUSCRIPTS",
+    Title = "👑 AYANUU HUB 👑",
+    Desc = "👑 MADE BY AYANUU 👑 | ID: ZM_AYANUU | INSTA ID: ",
     Icon = "crown",
 })
 
@@ -1888,7 +1888,7 @@ HomeTab:Space()
 HomeTab:Section({
     Title = [[
 👑AYANUU HUB👑, Multilingual and multifunctional client, offering a variety of options for you.
-Developed by AYANUU 👑 · ID: ZM_AYANUUSCRIPTS]],
+Developed by AYANUU 👑 ROBLOX ID: AYANUU160 INSTA ID:  ]],
     TextSize = 15,
     TextTransparency = 0.35,
     FontWeight = Enum.FontWeight.Medium,
@@ -2609,10 +2609,10 @@ local BangTab = window:Tab({
 BangTab:Section({ Title = "Bang Scripts", Icon = "flame", Opened = true })
 
 local BangScriptList = {
-    { Title = "BANG LOADSTRING 1", Desc = "Execute Bang script 1", Url = "https://raw.githubusercontent.com/your-username/bang1/main/script.lua" },
-    { Title = "BANG LOADSTRING 2", Desc = "Execute Bang script 2", Url = "https://raw.githubusercontent.com/your-username/bang2/main/script.lua" },
-    { Title = "BANG LOADSTRING 3", Desc = "Execute Bang script 3", Url = "https://raw.githubusercontent.com/your-username/bang3/main/script.lua" },
-    { Title = "BANG LOADSTRING 4", Desc = "Execute Bang script 4", Url = "https://raw.githubusercontent.com/your-username/bang4/main/script.lua" },
+    { Title = "BACK BANG", Desc = "Execute Bang script 1", Url = "https://raw.githubusercontent.com/ayanjaveed503-a11y/All-Resources/refs/heads/main/Bang.lua" },
+    { Title = "MOUTH BANG", Desc = "Execute Bang script 2", Url = "https://raw.githubusercontent.com/ayanjaveed503-a11y/All-Resources/refs/heads/main/mouthbang.lua" },
+    { Title = "MULTI BANG", Desc = "Execute Bang script 3", Url = "https://raw.githubusercontent.com/ayanjaveed503-a11y/All-Resources/refs/heads/main/Multi%20bang.lua" },
+    { Title = "UNLIMITED TARGET BANG", Desc = "Execute Bang script 4", Url = "https://raw.githubusercontent.com/ayanjaveed503-a11y/All-Resources/refs/heads/main/Unlimited%20target%20bang.lua" },
     { Title = "BANG LOADSTRING 5", Desc = "Execute Bang script 5", Url = "https://raw.githubusercontent.com/your-username/bang5/main/script.lua" },
     { Title = "BANG LOADSTRING 6", Desc = "Execute Bang script 6", Url = "https://raw.githubusercontent.com/your-username/bang6/main/script.lua" },
 }
