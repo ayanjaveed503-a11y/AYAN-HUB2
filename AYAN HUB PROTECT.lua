@@ -3665,12 +3665,12 @@ local FeedbackTab = window:Tab({
 FeedbackTab:Section({ Title = "Feedback", Icon = "message-circle", Opened = true })
 
 FeedbackTab:Button({
-	Title = "FEEDBACK soon",
+	Title = "AYANUU HUB FEEDBACK",
 	Desc = "Open feedback script",
 	Icon = "message-circle",
 	Callback = function()
 		PlayClickSound()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/your-username/feedback/main/script.lua"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-HUB2/refs/heads/main/Feedback.lua"))()
 	end,
 })
 
