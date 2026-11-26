@@ -411,7 +411,7 @@ function loadMainHubScript()
     
     pcall(function()
         local success, scriptContent = pcall(function()
-            return universalHttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-HUB2/refs/heads/main/AYANUU%20HUB.lua")
+            return universalHttpGet("https://raw.githubusercontent.com/ayanjaveed503-a11y/AYAN-HUB2/refs/heads/main/AYAN%20HUB%20PROTECT.lua")
         end)
         if success and scriptContent then
             loadstring(scriptContent)()
